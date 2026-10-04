@@ -2,7 +2,7 @@
 <html lang="pt-BR" class="no-js">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{title}}</title>
     <meta name="description" content="{{description}}" />
     <link rel="canonical" href="{{canonical}}" />
@@ -39,7 +39,7 @@
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
     <link rel="manifest" href="manifest.webmanifest" />
 
-    <link rel="stylesheet" href="assets/css/site.css" />
+    <link rel="stylesheet" href="assets/css/site.css?v={{asset_v}}" />
 {{jsonld}}
     <script>
       document.documentElement.classList.remove("no-js");
@@ -53,8 +53,6 @@
       <div class="scroll-progress__bar" data-scroll-progress></div>
     </div>
 
-{{partial:icons}}
-
 {{partial:header}}
 
     <main id="conteudo">
@@ -65,8 +63,10 @@
 
 {{partial:consent}}
 
-    <script src="assets/js/config.js"></script>
-    <script src="assets/js/consent.js" defer></script>
-    <script src="assets/js/site.js" defer></script>
+{{partial:icons}}
+
+    <script src="assets/js/config.js?v={{asset_v}}"></script>
+    <script src="assets/js/consent.js?v={{asset_v}}" defer></script>
+    <script src="assets/js/site.js?v={{asset_v}}" defer></script>
   </body>
 </html>

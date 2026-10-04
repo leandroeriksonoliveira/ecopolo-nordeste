@@ -18,6 +18,7 @@ terminado por uma linha `---`.
 from __future__ import annotations
 
 import datetime as _dt
+import hashlib
 import html
 import json
 import pathlib
@@ -317,12 +318,31 @@ def expand_partials(text: str, partials: dict[str, str], depth: int = 6) -> str:
     raise SystemExit("Parciais aninhados além da profundidade máxima (possível ciclo).")
 
 
+def asset_version() -> str:
+    """Fingerprint dos arquivos estáticos referenciados no layout.
+
+    O CSS/JS não pode ser cacheado como `immutable` no mesmo URL: o cliente
+    ainda via o cabeçalho escuro da primeira publicação. O query `?v=` força
+    o navegador a buscar a folha atual.
+    """
+    digest = hashlib.sha256()
+    for relative in (
+        "assets/css/site.css",
+        "assets/js/site.js",
+        "assets/js/consent.js",
+        "assets/js/config.js",
+    ):
+        digest.update((ROOT / relative).read_bytes())
+    return digest.hexdigest()[:10]
+
+
 def build() -> int:
     layout = read(SRC / "layout.html")
     partials = {p.stem: read(p) for p in sorted(PARTIALS.glob("*.html"))}
 
     site_tokens = {f"site_{k}": (v if isinstance(v, str) else "") for k, v in SITE.items()}
     year = str(_dt.date.today().year)
+    assets = asset_version()
 
     written: list[str] = []
     for page_path in sorted(PAGES.glob("*.html")):
@@ -365,6 +385,7 @@ def build() -> int:
                 "jsonld": jsonld,
                 "body_class": meta.get("body_class", ""),
                 "year": year,
+                "asset_v": assets,
                 "head_extra": meta.get("head_extra", ""),
                 "body": "",
             }

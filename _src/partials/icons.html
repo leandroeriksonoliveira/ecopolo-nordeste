@@ -1,5 +1,6 @@
-    <!-- Sprite de ícones embutido: zero requisições externas, escala sem perda. -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" focusable="false">
+    <!-- Sprite no fim do body e escondido por CSS (não por style="" — o CSP
+         bloqueia estilo inline). Assim o sprite nunca empurra o cabeçalho. -->
+    <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
       <symbol id="i-arrow" viewBox="0 0 20 20">
         <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3.5 10h13M11.5 5l5 5-5 5" />
       </symbol>
@@ -57,5 +58,17 @@
       </symbol>
       <symbol id="i-check" viewBox="0 0 20 20">
         <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m4 10.5 4 4 8-9" />
+      </symbol>
+      <symbol id="i-pause" viewBox="0 0 20 20">
+        <path fill="currentColor" d="M6 3.5h2.4v13H6zm5.6 0H14v13h-2.4z" />
+      </symbol>
+      <symbol id="i-play" viewBox="0 0 20 20">
+        <path fill="currentColor" d="M6.2 3.6v12.8L16 10Z" />
+      </symbol>
+      <symbol id="i-chevron-left" viewBox="0 0 20 20">
+        <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12.4 4.5 6.8 10l5.6 5.5" />
+      </symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 20 20">
+        <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M7.6 4.5 13.2 10l-5.6 5.5" />
       </symbol>
     </svg>

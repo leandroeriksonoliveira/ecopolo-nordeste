@@ -86,6 +86,141 @@
   );
   onScroll();
 
+  /* --------------------------------------------- Carrossel do hero (home) */
+  (function initHeroCarousel() {
+    var root = document.querySelector("[data-hero-carousel]");
+    if (!root) return;
+
+    var slides = root.querySelectorAll("[data-hero-slide]");
+    if (!slides.length) return;
+
+    var prev = root.querySelector("[data-hero-prev]");
+    var next = root.querySelector("[data-hero-next]");
+    var pauseBtn = root.querySelector("[data-hero-pause]");
+    var pauseIcon = root.querySelector("[data-hero-pause-icon] use");
+    var pauseLabel = root.querySelector("[data-hero-pause-label]");
+    var status = root.querySelector("[data-hero-status]");
+    var dots = root.querySelectorAll("[data-hero-dot]");
+    var intervalMs = parseInt(root.getAttribute("data-interval") || "3000", 10);
+    var index = 0;
+    var timer = null;
+    var playing = !reduceMotion;
+    var touchStartX = null;
+
+    function captionOf(i) {
+      return slides[i].getAttribute("data-caption") || "Slide " + (i + 1);
+    }
+
+    function show(i) {
+      index = (i + slides.length) % slides.length;
+      each(slides, function (slide, n) {
+        var on = n === index;
+        slide.classList.toggle("is-active", on);
+        slide.setAttribute("aria-hidden", on ? "false" : "true");
+      });
+      each(dots, function (dot, n) {
+        var on = n === index;
+        dot.setAttribute("aria-current", on ? "true" : "false");
+      });
+      if (status) {
+        status.textContent = captionOf(index) + ", " + (index + 1) + " de " + slides.length;
+      }
+    }
+
+    function stop() {
+      if (timer) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function start() {
+      stop();
+      if (!playing || reduceMotion || slides.length < 2) return;
+      timer = window.setInterval(function () {
+        show(index + 1);
+      }, intervalMs);
+    }
+
+    function setPlaying(on) {
+      playing = on && !reduceMotion;
+      if (pauseBtn) {
+        pauseBtn.setAttribute("aria-pressed", playing ? "false" : "true");
+        pauseBtn.setAttribute("aria-label", playing ? "Pausar o carrossel" : "Reproduzir o carrossel");
+      }
+      if (pauseLabel) pauseLabel.textContent = playing ? "Pausar" : "Reproduzir";
+      if (pauseIcon) pauseIcon.setAttribute("href", playing ? "#i-pause" : "#i-play");
+      if (playing) start();
+      else stop();
+    }
+
+    function go(i) {
+      show(i);
+      if (playing) start();
+    }
+
+    if (prev) prev.addEventListener("click", function () { go(index - 1); });
+    if (next) next.addEventListener("click", function () { go(index + 1); });
+    if (pauseBtn) {
+      pauseBtn.addEventListener("click", function () {
+        setPlaying(!playing);
+      });
+    }
+    each(dots, function (dot, n) {
+      dot.addEventListener("click", function () { go(n); });
+    });
+
+    root.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        go(index - 1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        go(index + 1);
+      } else if (event.key === "Home") {
+        event.preventDefault();
+        go(0);
+      } else if (event.key === "End") {
+        event.preventDefault();
+        go(slides.length - 1);
+      }
+    });
+
+    root.addEventListener("focusin", function () { stop(); });
+    root.addEventListener("focusout", function (event) {
+      if (!root.contains(event.relatedTarget) && playing) start();
+    });
+
+    root.addEventListener(
+      "touchstart",
+      function (event) {
+        if (event.changedTouches && event.changedTouches[0]) {
+          touchStartX = event.changedTouches[0].clientX;
+        }
+      },
+      { passive: true }
+    );
+    root.addEventListener(
+      "touchend",
+      function (event) {
+        if (touchStartX == null || !event.changedTouches || !event.changedTouches[0]) return;
+        var dx = event.changedTouches[0].clientX - touchStartX;
+        touchStartX = null;
+        if (Math.abs(dx) < 40) return;
+        go(index + (dx < 0 ? 1 : -1));
+      },
+      { passive: true }
+    );
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stop();
+      else if (playing) start();
+    });
+
+    show(0);
+    setPlaying(playing);
+  })();
+
   /* ---------------------------------------------------- Revelação na rolagem */
   var revealables = document.querySelectorAll("[data-reveal]");
   if (!revealables.length) {
