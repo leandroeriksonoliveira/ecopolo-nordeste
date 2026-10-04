@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}" />
+    <link rel="canonical" href="{{canonical}}" />
+    <meta name="robots" content="{{robots}}" />
+    <meta name="author" content="{{site_legal_name}}" />
+    <meta name="theme-color" content="#01230f" />
+    <meta name="color-scheme" content="light" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="{{og_type}}" />
+    <meta property="og:site_name" content="{{site_name}}" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="{{title}}" />
+    <meta property="og:description" content="{{description}}" />
+    <meta property="og:url" content="{{canonical}}" />
+    <meta property="og:image" content="{{og_image_url}}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{og_image_alt}}" />
+    <meta property="article:publisher" content="{{site_linkedin}}" />
+    <meta property="og:see_also" content="{{site_linkedin}}" />
+    <meta property="og:see_also" content="{{site_instagram}}" />
+
+    <!-- Cartão de compartilhamento -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{title}}" />
+    <meta name="twitter:description" content="{{description}}" />
+    <meta name="twitter:image" content="{{og_image_url}}" />
+    <meta name="twitter:image:alt" content="{{og_image_alt}}" />
+
+    <!-- Identidade de navegador e aplicativo -->
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/img/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+
+    <link rel="stylesheet" href="assets/css/site.css" />
+{{jsonld}}
+    <script>
+      document.documentElement.classList.remove("no-js");
+    </script>
+{{head_extra}}
+  </head>
+  <body class="{{body_class}}">
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
+
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress__bar" data-scroll-progress></div>
+    </div>
+
+{{partial:icons}}
+
+{{partial:header}}
+
+    <main id="conteudo">
+{{body}}
+    </main>
+
+{{partial:footer}}
+
+{{partial:consent}}
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/consent.js" defer></script>
+    <script src="assets/js/site.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+    <!--
+      Camada de consentimento de cookies.
+      Opt-in real: nada além do estritamente necessário é ativado antes da
+      decisão do visitante. O registro do consentimento (id, data/hora, versão
+      do texto e categorias) fica disponível ao titular em cookies.html.
+    -->
+    <div
+      class="cookie-banner"
+      data-consent-banner
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby="consent-titulo"
+      aria-describedby="consent-texto"
+    >
+      <div class="cookie-banner__card">
+        <h2 id="consent-titulo">Sua escolha sobre cookies</h2>
+        <p id="consent-texto">
+          Usamos cookies estritamente necessários para o funcionamento do site.
+          Cookies de preferências, de estatística e de marketing só são ativados
+          se você autorizar. Você pode mudar essa decisão a qualquer momento em
+          “Gerenciar cookies”, no rodapé. Detalhes em
+          <a href="cookies.html">Política de Cookies</a> e
+          <a href="privacidade.html">Política de Privacidade</a>.
+        </p>
+
+        <div class="consent-prefs" data-consent-prefs hidden>
+          <div class="consent-item">
+            <input type="checkbox" id="ck-necessarios" checked disabled />
+            <label for="ck-necessarios">
+              <span class="consent-item__name">Estritamente necessários — sempre ativos</span>
+              <span class="consent-item__desc">
+                Segurança, equilíbrio de carga e memória da sua decisão sobre
+                cookies. Sem eles o site não funciona. Base legal: legítimo
+                interesse para a prestação do serviço solicitado.
+              </span>
+            </label>
+          </div>
+          <div class="consent-item">
+            <input type="checkbox" id="ck-preferencias" data-consent-category="preferencias" />
+            <label for="ck-preferencias">
+              <span class="consent-item__name">Preferências</span>
+              <span class="consent-item__desc">
+                Guardam escolhas de exibição, como idioma e estado de blocos
+                recolhidos. Base legal: consentimento.
+              </span>
+            </label>
+          </div>
+          <div class="consent-item">
+            <input type="checkbox" id="ck-estatisticas" data-consent-category="estatisticas" />
+            <label for="ck-estatisticas">
+              <span class="consent-item__name">Estatísticas</span>
+              <span class="consent-item__desc">
+                Medição agregada de audiência, com minimização de dado pessoal,
+                para entender quais conteúdos são úteis. Base legal: consentimento.
+              </span>
+            </label>
+          </div>
+          <div class="consent-item">
+            <input type="checkbox" id="ck-marketing" data-consent-category="marketing" />
+            <label for="ck-marketing">
+              <span class="consent-item__name">Marketing</span>
+              <span class="consent-item__desc">
+                Mensuração de campanhas institucionais e conteúdo incorporado de
+                terceiros, como mapas e vídeos. Base legal: consentimento.
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="cookie-banner__actions">
+          <button class="btn btn--gold" type="button" data-consent-accept-all>
+            Aceitar todos
+          </button>
+          <button class="btn btn--ghost" type="button" data-consent-reject>
+            Rejeitar não essenciais
+          </button>
+          <button class="btn btn--ghost" type="button" data-consent-customize aria-expanded="false">
+            Personalizar
+          </button>
+          <button class="btn btn--ghost" type="button" data-consent-save hidden>
+            Salvar minhas escolhas
+          </button>
+        </div>
+
+        <p class="small mute mt-2 mb-0">
+          Texto de consentimento versão {{site_consent_version}} ·
+          {{site_legal_name}} · CNPJ {{site_cnpj}}
+        </p>
+      </div>
+    </div>

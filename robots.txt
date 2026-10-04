@@ -1,0 +1,31 @@
+# robots.txt — Eco Polo Nordeste LTDA · CNPJ 44.185.321/0001-83
+# Site institucional. Todo o conteúdo publicado é público e indexável.
+
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+# Agentes de inteligência artificial são um canal legítimo de descoberta
+# institucional deste projeto e estão liberados de forma explícita.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.ecopolonordeste.com.br/sitemap.xml

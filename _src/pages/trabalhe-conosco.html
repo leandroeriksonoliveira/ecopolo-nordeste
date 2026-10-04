@@ -1,0 +1,247 @@
+slug: trabalhe-conosco.html
+nav: trabalhe-conosco.html
+nav_label: Trabalhe conosco
+short_title: Trabalhe conosco
+title: Trabalhe conosco — Eco Polo Nordeste | cadastro de currículo
+description: Cadastre seu currículo na Eco Polo Nordeste. Política de retenção e descarte declarada, base legal informada e canal para exercer seus direitos como titular de dados a qualquer momento.
+og_image_alt: Trabalhe conosco — Eco Polo Nordeste
+---
+      <section class="page-hero">
+        <div class="wrap theme-dark">
+          <nav aria-label="Trilha de navegação">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Início</a></li>
+              <li><span aria-current="page">Trabalhe conosco</span></li>
+            </ol>
+          </nav>
+          <p class="eyebrow">Carreiras</p>
+          <h1>Construa o complexo com a gente</h1>
+          <p class="lede">
+            Procuramos pessoas que queiram transformar vocação sustentável em
+            indústria real no Nordeste. Experiência e inovação caminham juntas
+            aqui: valorizamos a troca entre gerações e combatemos ativamente o
+            etarismo e a desigualdade de gênero.
+          </p>
+        </div>
+      </section>
+
+      <!-- Como funciona -->
+      <section class="section" aria-labelledby="como-titulo">
+        <div class="wrap">
+          <div class="section-head section-head--wide" data-reveal>
+            <p class="eyebrow">Transparência</p>
+            <h2 id="como-titulo">O que acontece com o seu currículo</h2>
+            <p class="lede">
+              Essa informação costuma ficar oculta em processos seletivos. Aqui ela
+              está declarada antes de você enviar qualquer dado.
+            </p>
+          </div>
+
+          <div class="grid grid--4">
+            <article class="card" data-reveal="stagger">
+              <span class="card__num">01</span>
+              <h3>Recebimento</h3>
+              <p>Seu cadastro entra em um banco de talentos acessado apenas pela equipe de pessoas e pelos gestores das vagas.</p>
+            </article>
+            <article class="card" data-reveal="stagger">
+              <span class="card__num">02</span>
+              <h3>Triagem</h3>
+              <p>Avaliamos aderência ao perfil das frentes em estruturação. Candidaturas sem vaga aberta compatível seguem no banco.</p>
+            </article>
+            <article class="card" data-reveal="stagger">
+              <span class="card__num">03</span>
+              <h3>Guarda por 24 meses</h3>
+              <p>Mantemos o cadastro por até 24 meses contados do envio, para considerar você em novas oportunidades.</p>
+            </article>
+            <article class="card" data-reveal="stagger">
+              <span class="card__num">04</span>
+              <h3>Descarte</h3>
+              <p>Ao fim do prazo, ou se você pedir, os dados e o arquivo são eliminados de forma definitiva, com registro da operação.</p>
+            </article>
+          </div>
+
+          <div class="callout mt-3" data-reveal>
+            <h3>Você pode sair do banco quando quiser</h3>
+            <p>
+              Para solicitar confirmação, acesso, correção, portabilidade ou
+              eliminação dos seus dados, escreva para
+              <a href="mailto:{{site_email_legal}}">{{site_email_legal}}</a> ou use
+              o formulário de
+              <a href="conformidade.html#direitos">direitos do titular</a>. O prazo
+              de resposta é de 15 dias.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vagas -->
+      <section class="section section--alt" aria-labelledby="vagas-titulo">
+        <div class="wrap">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">Oportunidades</p>
+            <h2 id="vagas-titulo">Vagas abertas</h2>
+          </div>
+          <div class="callout callout--data" data-reveal>
+            <h3>Nenhuma vaga publicada neste momento</h3>
+            <p>
+              As posições do complexo são abertas conforme o avanço das fases de
+              implantação. Você pode cadastrar seu currículo abaixo para o banco de
+              talentos, e as vagas são divulgadas no
+              <a href="{{site_linkedin}}" target="_blank" rel="noopener noreferrer external">
+                LinkedIn da companhia <span class="mono">{{site_linkedin_handle}}</span>
+                <span class="visually-hidden">(abre em nova aba)</span>
+              </a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cadastro de currículo -->
+      <section class="section" id="cadastro" aria-labelledby="cv-titulo">
+        <div class="wrap split split--wide-left">
+          <div class="chapter__sticky" data-reveal>
+            <p class="eyebrow">Banco de talentos</p>
+            <h2 id="cv-titulo">Cadastre seu currículo</h2>
+            <div class="prose">
+              <p>
+                Envie apenas o necessário. Pedimos nome, contato, nível pretendido
+                e o arquivo do currículo — nada além disso.
+              </p>
+              <p>
+                <strong>Não inclua no arquivo</strong> dados sensíveis que não sejam
+                exigidos pela vaga, como informação de saúde, origem racial,
+                convicção religiosa, opinião política, filiação sindical ou dado
+                biométrico. Se o seu currículo contiver esse tipo de informação,
+                ela será tratada apenas na medida necessária ao processo seletivo.
+              </p>
+              <p class="small mute">
+                Formatos aceitos: PDF, DOC ou DOCX. Tamanho máximo: 2 MB.
+              </p>
+            </div>
+          </div>
+
+          <div class="form-card" data-reveal>
+            <form
+              class="form"
+              data-form="curriculo"
+              data-form-name="Cadastro de currículo"
+              data-policy-version="{{site_policy_version}}"
+              novalidate
+            >
+              <div class="form__row form__row--2">
+                <div class="field">
+                  <label for="cv-nome">Nome completo <span class="field__req" aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></label>
+                  <input class="input" type="text" id="cv-nome" name="nome" autocomplete="name" required aria-describedby="cv-nome-erro" />
+                  <p class="field__error" id="cv-nome-erro" data-error-for="nome"></p>
+                </div>
+                <div class="field">
+                  <label for="cv-email">E-mail <span class="field__req" aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></label>
+                  <input class="input" type="email" id="cv-email" name="email" autocomplete="email" required aria-describedby="cv-email-erro" />
+                  <p class="field__error" id="cv-email-erro" data-error-for="email"></p>
+                </div>
+              </div>
+
+              <div class="form__row form__row--2">
+                <div class="field">
+                  <label for="cv-tel">Telefone <span class="field__req" aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></label>
+                  <input class="input" type="tel" id="cv-tel" name="telefone" autocomplete="tel" required aria-describedby="cv-tel-erro" />
+                  <p class="field__error" id="cv-tel-erro" data-error-for="telefone"></p>
+                </div>
+                <div class="field">
+                  <label for="cv-cargo">Cargo pretendido <span class="field__req" aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></label>
+                  <input class="input" type="text" id="cv-cargo" name="cargo" required aria-describedby="cv-cargo-erro" />
+                  <p class="field__error" id="cv-cargo-erro" data-error-for="cargo"></p>
+                </div>
+              </div>
+
+              <fieldset>
+                <legend>Nível da candidatura <span class="field__req" aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></legend>
+                <div class="radio-row">
+                  <label class="radio">
+                    <input type="radio" name="nivel" value="Nível superior" required />
+                    <span>Nível superior</span>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="nivel" value="Nível técnico" />
+                    <span>Nível técnico</span>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="nivel" value="Operacional" />
+                    <span>Operacional</span>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="nivel" value="Apoio técnico ou execução" />
+                    <span>Apoio técnico ou execução</span>
+                  </label>
+                </div>
+                <p class="field__error" data-error-for="nivel"></p>
+              </fieldset>
+
+              <div class="field">
+                <label for="cv-arquivo">Currículo <span class="field__req" aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></label>
+                <input
+                  class="input"
+                  type="file"
+                  id="cv-arquivo"
+                  name="curriculo"
+                  accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  required
+                  aria-describedby="cv-arquivo-dica cv-arquivo-erro"
+                />
+                <p class="field__hint" id="cv-arquivo-dica">PDF, DOC ou DOCX, até 2 MB.</p>
+                <p class="field__error" id="cv-arquivo-erro" data-error-for="curriculo"></p>
+              </div>
+
+              <details class="privacy-notice" open>
+                <summary>Aviso de privacidade desta coleta</summary>
+                <div class="privacy-notice__body">
+                  <dl>
+                    <dt>Finalidade</dt>
+                    <dd>Avaliação da candidatura e formação de banco de talentos para processos seletivos da companhia.</dd>
+                    <dt>Dados coletados</dt>
+                    <dd>Nome, e-mail, telefone, cargo pretendido, nível da candidatura e o arquivo de currículo enviado, com o conteúdo que você optar por incluir.</dd>
+                    <dt>Base legal</dt>
+                    <dd>Consentimento do titular — art. 7º, I, da LGPD. Para eventual dado sensível presente no currículo, art. 11, I, da LGPD (consentimento específico e destacado).</dd>
+                    <dt>Prazo de retenção</dt>
+                    <dd>Até 24 meses contados do envio. Após esse prazo, os dados e o arquivo são eliminados de forma definitiva.</dd>
+                    <dt>Procedimento de descarte</dt>
+                    <dd>Eliminação do registro e do arquivo nos sistemas da companhia, com registro da operação para fins de prova.</dd>
+                    <dt>Compartilhamento</dt>
+                    <dd>Equipe de pessoas, gestores das vagas e, quando aplicável, consultoria de recrutamento contratada sob instrução da controladora. Sem venda ou cessão a terceiros.</dd>
+                    <dt>Decisão automatizada</dt>
+                    <dd>Não utilizamos decisão unicamente automatizada para triagem de candidaturas.</dd>
+                    <dt>Controladora e canal do titular</dt>
+                    <dd>{{site_legal_name}} — CNPJ {{site_cnpj}} · <a href="mailto:{{site_email_legal}}">{{site_email_legal}}</a> · prazo de resposta de 15 dias</dd>
+                  </dl>
+                  <p><a href="privacidade.html">Política de Privacidade</a> · <a href="conformidade.html#direitos">Exercer direitos do titular</a></p>
+                </div>
+              </details>
+
+              <label class="check">
+                <input type="checkbox" name="consent" value="sim" required data-consent-field />
+                <span class="check__text">
+                  Autorizo a {{site_legal_name}} a tratar os dados deste cadastro e
+                  o arquivo do meu currículo para avaliação da minha candidatura e
+                  manutenção em banco de talentos por até 24 meses, conforme a
+                  <a href="privacidade.html">Política de Privacidade</a> (versão
+                  {{site_policy_version}}). Sei que posso revogar este
+                  consentimento a qualquer momento.
+                  <span class="field__req" aria-hidden="true">*</span>
+                </span>
+              </label>
+              <p class="field__error" data-error-for="consent"></p>
+
+              <button class="btn btn--gold btn--block" type="submit">
+                Enviar candidatura
+                <svg class="btn__arrow" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg>
+              </button>
+              <p class="small mute mb-0">
+                Enviamos confirmação de recebimento no e-mail informado.
+                Candidaturas sem vaga compatível permanecem no banco de talentos
+                pelo prazo declarado acima.
+              </p>
+              <p class="form__status" role="status" aria-live="polite" data-form-status></p>
+            </form>
+          </div>
+        </div>
+      </section>

@@ -1,0 +1,38 @@
+# Sistema e macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+.env/
+env/
+
+# Segredos e ambiente
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets/
+
+# Vercel / caches locais
+.vercel
+.turbo
+.cache/
+*.log
+npm-debug.log*
+
+# Editores
+.idea/
+.vscode/
+*.swp
+*~

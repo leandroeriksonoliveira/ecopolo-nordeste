@@ -1,0 +1,13 @@
+# Autoria — fica no Git, não vai ao ar
+_src
+tools
+deploy
+
+# Cache e ambiente
+.DS_Store
+__pycache__
+*.pyc
+.env
+.env.*
+.vercel
+*.log

@@ -1,0 +1,232 @@
+slug: acessibilidade.html
+nav: conformidade.html
+nav_label: Declaração de Acessibilidade
+short_title: Acessibilidade
+title: Declaração de Acessibilidade — Eco Polo Nordeste
+description: Declaração de Acessibilidade do site da Eco Polo Nordeste: nível de conformidade declarado com a WCAG 2.2 AA, recursos implementados, limitações conhecidas e canal para reportar barreira de acesso.
+og_image_alt: Declaração de Acessibilidade da Eco Polo Nordeste
+---
+      <section class="doc-header">
+        <div class="wrap">
+          <nav aria-label="Trilha de navegação">
+            <ol class="breadcrumb breadcrumb--light">
+              <li><a href="index.html">Início</a></li>
+              <li><a href="conformidade.html">Conformidade</a></li>
+              <li><span aria-current="page">Acessibilidade</span></li>
+            </ol>
+          </nav>
+          <p class="eyebrow">Documento legal</p>
+          <h1>Declaração de Acessibilidade</h1>
+          <p class="lede">
+            A {{site_legal_name}} entende acessibilidade digital como requisito,
+            não como recurso adicional. Esta declaração informa o nível de
+            conformidade do site, o que já está implementado, o que ainda não
+            está, e como relatar uma barreira.
+          </p>
+          <ul class="doc-meta">
+            <li><b>Versão:</b> {{site_policy_version}}</li>
+            <li><b>Vigente desde:</b> {{site_policy_date}}</li>
+            <li><b>Referência:</b> WCAG 2.2 nível AA</li>
+            <li><b>Base legal:</b> Lei 13.146/2015, art. 63</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section--tight">
+        <div class="wrap doc-layout">
+          <nav class="toc" aria-labelledby="toc-titulo" data-toc>
+            <h2 id="toc-titulo">Nesta página</h2>
+            <ol>
+              <li><a href="#compromisso">Compromisso</a></li>
+              <li><a href="#conformidade">Nível de conformidade</a></li>
+              <li><a href="#recursos">Recursos implementados</a></li>
+              <li><a href="#limitacoes">Limitações conhecidas</a></li>
+              <li><a href="#avaliacao">Como avaliamos</a></li>
+              <li><a href="#reporte">Reportar uma barreira</a></li>
+            </ol>
+          </nav>
+
+          <div class="prose">
+            <section class="doc-section" id="compromisso">
+              <h2>1. Compromisso</h2>
+              <p>
+                Buscamos que qualquer pessoa consiga usar este site, com ou sem
+                tecnologia assistiva, em qualquer dispositivo. O compromisso é
+                tratado como parte do ciclo de desenvolvimento: toda alteração
+                relevante passa por verificação de semântica, contraste, foco e
+                operação por teclado antes da publicação.
+              </p>
+              <p>
+                O art. 63 da Lei 13.146/2015 (Estatuto da Pessoa com Deficiência)
+                determina que sites mantidos por empresas com sede ou representação
+                comercial no país sejam acessíveis à pessoa com deficiência. Esta
+                declaração é o instrumento público desse compromisso.
+              </p>
+            </section>
+
+            <section class="doc-section" id="conformidade">
+              <h2>2. Nível de conformidade declarado</h2>
+              <p>
+                <strong>Parcialmente conforme</strong> com as
+                <em>Web Content Accessibility Guidelines</em> (WCAG) 2.2, nível AA.
+                “Parcialmente conforme” significa que a maior parte do conteúdo
+                atende ao nível declarado e que as exceções conhecidas estão
+                listadas na seção 4, com plano de tratamento.
+              </p>
+              <p>
+                A declaração se aplica a todas as páginas deste domínio na versão
+                {{site_policy_version}}, publicada em {{site_policy_date}}.
+                Conteúdo hospedado em plataformas de terceiros — como os perfis da
+                companhia no LinkedIn e no Instagram — está sujeito à acessibilidade
+                dessas plataformas, fora do controle da companhia.
+              </p>
+            </section>
+
+            <section class="doc-section" id="recursos">
+              <h2>3. Recursos implementados</h2>
+              <ul>
+                <li>
+                  <strong>Estrutura semântica:</strong> marcos de página
+                  (<span class="mono">header</span>, <span class="mono">nav</span>,
+                  <span class="mono">main</span>, <span class="mono">footer</span>),
+                  hierarquia de títulos sem salto de nível e listas marcadas como
+                  listas.
+                </li>
+                <li>
+                  <strong>Link de atalho:</strong> “Ir para o conteúdo principal”
+                  como primeiro elemento focalizável de cada página.
+                </li>
+                <li>
+                  <strong>Navegação por teclado:</strong> todos os controles
+                  — menu, abas, blocos recolhíveis, formulários e painel de cookies
+                  — são operáveis por teclado, em ordem de leitura previsível.
+                </li>
+                <li>
+                  <strong>Foco visível:</strong> indicador de foco de alto
+                  contraste em todos os elementos interativos, nunca removido.
+                </li>
+                <li>
+                  <strong>Contraste:</strong> texto e componentes de interface
+                  verificados para atender à razão mínima de 4,5:1 (texto normal) e
+                  3:1 (texto grande e elementos gráficos). Não usamos texto branco
+                  sobre o dourado da marca, combinação de contraste insuficiente.
+                </li>
+                <li>
+                  <strong>Alternativa textual:</strong> imagens e diagramas
+                  informativos têm descrição equivalente; elementos puramente
+                  decorativos são marcados como tal e ignorados por leitores de
+                  tela.
+                </li>
+                <li>
+                  <strong>Formulários:</strong> rótulo associado a cada campo,
+                  indicação de obrigatoriedade legível por leitor de tela,
+                  mensagens de erro descritivas vinculadas ao campo e anúncio de
+                  status em região <span class="mono">aria-live</span>.
+                </li>
+                <li>
+                  <strong>Links de saída:</strong> links que abrem em nova aba são
+                  anunciados como tal e identificam o destino no nome acessível.
+                </li>
+                <li>
+                  <strong>Movimento:</strong> animações são sutis, não essenciais à
+                  compreensão, e totalmente desligadas quando o sistema indica
+                  <span class="mono">prefers-reduced-motion</span>.
+                </li>
+                <li>
+                  <strong>Zoom e redimensionamento:</strong> layout responsivo com
+                  unidades relativas, legível até 200% de zoom e em viewport de
+                  320&nbsp;px sem rolagem horizontal.
+                </li>
+                <li>
+                  <strong>Funcionamento sem JavaScript:</strong> todo o conteúdo e
+                  a navegação permanecem acessíveis se o script não carregar.
+                </li>
+                <li>
+                  <strong>Idioma:</strong> idioma da página declarado como
+                  <span class="mono">pt-BR</span>, e abreviações expandidas com
+                  <span class="mono">abbr</span>.
+                </li>
+              </ul>
+            </section>
+
+            <section class="doc-section" id="limitacoes">
+              <h2>4. Limitações conhecidas</h2>
+              <p>
+                Declaramos de forma aberta o que ainda não está resolvido:
+              </p>
+              <ul>
+                <li>
+                  <strong>Conteúdo incorporado de terceiros.</strong> O mapa da
+                  página de contato é servido pelo OpenStreetMap e sua
+                  acessibilidade interna não está sob nosso controle. Mitigação: o
+                  endereço completo está sempre disponível em texto, e o mapa é
+                  opcional.
+                </li>
+                <li>
+                  <strong>Documentos para download.</strong> Materiais em PDF
+                  disponibilizados no futuro podem não estar integralmente
+                  etiquetados para leitores de tela. Mitigação: fornecemos versão
+                  acessível a pedido, pelo canal da seção 6.
+                </li>
+                <li>
+                  <strong>Auditoria independente.</strong> A verificação de
+                  conformidade AA foi realizada internamente nesta versão.
+                  Avaliação por terceiro independente, com relatório publicável,
+                  está prevista e seu resultado será registrado nesta página.
+                </li>
+                <li>
+                  <strong>Versão em inglês.</strong> O site está disponível apenas
+                  em português do Brasil. A versão em inglês está no plano de
+                  evolução, dado o público investidor e industrial internacional do
+                  projeto.
+                </li>
+              </ul>
+            </section>
+
+            <section class="doc-section" id="avaliacao">
+              <h2>5. Como avaliamos</h2>
+              <p>
+                A verificação desta versão combinou:
+              </p>
+              <ul>
+                <li>revisão manual de semântica, hierarquia de títulos e nomes acessíveis;</li>
+                <li>navegação completa apenas por teclado, em todas as páginas e formulários;</li>
+                <li>conferência de razão de contraste das combinações de cor da marca;</li>
+                <li>teste de layout em 320&nbsp;px, 768&nbsp;px e 1440&nbsp;px, com zoom a 200%;</li>
+                <li>verificação do comportamento com JavaScript desativado e com movimento reduzido.</li>
+              </ul>
+              <p>
+                A próxima reavaliação ocorre a cada alteração material do site e,
+                no mínimo, uma vez por ano.
+              </p>
+            </section>
+
+            <section class="doc-section" id="reporte">
+              <h2>6. Encontrou uma barreira? Fale com a gente</h2>
+              <p>
+                Se alguma parte deste site impediu ou dificultou o seu acesso,
+                queremos saber. Descreva, se possível, a página, o que você tentava
+                fazer e a tecnologia assistiva utilizada.
+              </p>
+              <p>
+                <strong>Canal:</strong>
+                <a href="mailto:{{site_email}}?subject=Acessibilidade%20do%20site">{{site_email}}</a>
+                — com o assunto “Acessibilidade do site”.<br />
+                <strong>Telefone:</strong>
+                <a href="tel:{{site_phone_1_tel}}">{{site_phone_1}}</a><br />
+                <strong>Prazo de primeira resposta:</strong> 10 dias úteis, com
+                indicação de prazo de correção ou de alternativa de acesso ao
+                conteúdo.
+              </p>
+              <p>
+                Se a resposta não resolver, você pode recorrer aos órgãos de defesa
+                dos direitos da pessoa com deficiência, ao Ministério Público ou aos
+                órgãos de defesa do consumidor.
+              </p>
+              <p>
+                <a class="back-to-top" href="#conteudo">Voltar ao início do documento</a>
+              </p>
+            </section>
+          </div>
+        </div>
+      </section>
