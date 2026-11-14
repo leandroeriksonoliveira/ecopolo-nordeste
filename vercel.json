@@ -51,6 +51,10 @@
       ]
     }
   ],
+  "redirects": [
+    { "source": "/en", "destination": "/en/index.html", "permanent": true },
+    { "source": "/en/", "destination": "/en/index.html", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/_src/:path*", "destination": "/404.html" },
     { "source": "/tools/:path*", "destination": "/404.html" },

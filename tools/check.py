@@ -342,7 +342,7 @@ def main() -> int:
                 problems.append(f"sitemap.xml não deveria listar {rel}")
             continue
         if is_en:
-            slug = "/en/" if path.name == "index.html" else f"/en/{path.name}"
+            slug = f"/en/{path.name}"
         else:
             slug = "/" if path.name == "index.html" else f"/{path.name}"
         if f"<loc>https://www.ecopolonordeste.com.br{slug}</loc>" not in sitemap:

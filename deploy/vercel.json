@@ -50,5 +50,9 @@
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/en", "destination": "/en/index.html", "permanent": true },
+    { "source": "/en/", "destination": "/en/index.html", "permanent": true }
   ]
 }

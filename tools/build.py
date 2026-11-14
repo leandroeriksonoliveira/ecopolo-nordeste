@@ -218,8 +218,9 @@ def render_nav(active: str, lang: str) -> str:
 
 
 def canonical_url(slug: str, lang: str) -> str:
-    prefix = f'{SITE["origin"]}/en' if lang == "en" else SITE["origin"]
-    return f"{prefix}/" if slug == "index.html" else f"{prefix}/{slug}"
+    if lang == "en":
+        return f'{SITE["origin"]}/en/{slug}'
+    return f'{SITE["origin"]}/' if slug == "index.html" else f'{SITE["origin"]}/{slug}'
 
 
 def organization_jsonld(lang: str) -> str:
