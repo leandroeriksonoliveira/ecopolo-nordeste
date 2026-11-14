@@ -6,105 +6,51 @@ description: Eco Polo Nordeste LTDA, CNPJ 44.185.321/0001-83: empresa brasileira
 og_image_alt: Quem somos — Eco Polo Nordeste
 ---
       <section class="page-hero">
-        <div class="wrap">
-          <nav aria-label="Trilha de navegação">
-            <ol class="breadcrumb">
-              <li><a href="index.html">Início</a></li>
-              <li><span aria-current="page">Quem somos</span></li>
-            </ol>
-          </nav>
-          <p class="eyebrow">Quem somos</p>
-          <h1>Uma empresa brasileira e privada dedicada a estruturar o ecossistema da sustentabilidade</h1>
-          <p class="lede">
-            A Eco Polo Nordeste apoia e desenvolve projetos estratégicos em
-            tecnologias verdes, biotecnologia e pesquisa aplicada para as cadeias
-            do agronegócio, da alimentação do futuro e das soluções
-            médico-hospitalares — transformando vocação sustentável em ativos
-            industriais.
-          </p>
-        </div>
-      </section>
-
-      <!-- Identificação legal já no topo do conteúdo -->
-      <section class="section section--tight section--alt">
-        <div class="wrap">
-          <div class="table-scroll" data-reveal>
-            <table class="data">
-              <caption>
-                Dados cadastrais da companhia, conforme registro oficial.
-              </caption>
-              <tbody>
-                <tr>
-                  <th scope="row">Razão social</th>
-                  <td>{{site_legal_name}}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Nome fantasia</th>
-                  <td>{{site_trade_name}} · Eco Polo Nordeste</td>
-                </tr>
-                <tr>
-                  <th scope="row">CNPJ</th>
-                  <td class="mono">{{site_cnpj}}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Constituição</th>
-                  <td>{{site_founded_label}}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Porte</th>
-                  <td>{{site_size_label}}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Sede e base operacional</th>
-                  <td>{{site_hq_full}}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Escritório comercial</th>
-                  <td>{{site_com_full}}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Natureza do capital</th>
-                  <td>Empresa privada de capital fechado</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="wrap page-hero__grid">
+          <div class="page-hero__copy">
+            <nav aria-label="Trilha de navegação">
+              <ol class="breadcrumb">
+                <li><a href="index.html">Início</a></li>
+                <li><span aria-current="page">Quem somos</span></li>
+              </ol>
+            </nav>
+            <p class="eyebrow">Quem somos</p>
+            <h1>Empresa brasileira que estrutura o ecossistema da sustentabilidade</h1>
+            <p class="lede">
+              Projetos em tecnologias verdes, biotecnologia e P&amp;D para agronegócio, alimentação e soluções médico-hospitalares — com raiz no Nordeste.
+            </p>
+            <aside class="reg-card mt-2" aria-labelledby="reg-titulo">
+              <div>
+                <p class="reg-card__title" id="reg-titulo">Dados cadastrais</p>
+                <p class="reg-card__note">
+                  Razão social, CNPJ, sede e escritório já constam no rodapé. Aqui, só o exclusivo desta página.
+                </p>
+              </div>
+              <dl>
+                <div class="row">
+                  <dt>Natureza do capital</dt>
+                  <dd>Privada, capital fechado</dd>
+                </div>
+              </dl>
+            </aside>
           </div>
-        </div>
-      </section>
-
-      <section class="section section--flush" aria-labelledby="lugar-titulo">
-        <div class="story-band" data-reveal>
-          <figure class="story-band__media">
+          <figure class="page-hero__visual">
             <img
               src="assets/img/story-canyon-xingo.webp"
               srcset="assets/img/story-canyon-xingo-720.webp 720w, assets/img/story-canyon-xingo-960.webp 960w, assets/img/story-canyon-xingo.webp 900w"
-              sizes="100vw"
+              sizes="(min-width: 56rem) 42vw, 100vw"
               width="900"
               height="920"
-              loading="lazy"
               decoding="async"
+              fetchpriority="high"
               alt="Cânions do São Francisco em Alagoas, paredões alaranjados e água verde"
             />
           </figure>
-          <div class="story-band__panel">
-            <p class="eyebrow">Origem</p>
-            <h2 id="lugar-titulo">Empresa brasileira com raiz no Nordeste</h2>
-            <p>
-              A identidade da Eco Polo Nordeste se ancora no território —
-              Delmiro Gouveia, o São Francisco e a caatinga — e não em
-              abstrações genéricas de “tech verde”.
-            </p>
-            <ul class="story-band__facts">
-              <li>CNPJ {{site_cnpj}}</li>
-              <li>Desde novembro de 2021</li>
-              <li>Sede em Maceió — AL</li>
-            </ul>
-          </div>
         </div>
       </section>
 
       <!-- Missão, visão, propósito -->
-      <section class="section" aria-labelledby="mvp-titulo">
+      <section class="section section--tight" aria-labelledby="mvp-titulo">
         <div class="wrap">
           <div class="section-head" data-reveal>
             <p class="eyebrow">Direção</p>
@@ -191,7 +137,7 @@ og_image_alt: Quem somos — Eco Polo Nordeste
       </section>
 
       <!-- Valores -->
-      <section class="section" aria-labelledby="valores-titulo">
+      <section class="section section--tight" aria-labelledby="valores-titulo">
         <div class="wrap">
           <div class="section-head" data-reveal>
             <p class="eyebrow">Valores</p>
@@ -300,7 +246,7 @@ og_image_alt: Quem somos — Eco Polo Nordeste
       </section>
 
       <!-- Diversidade -->
-      <section class="section" aria-labelledby="div-titulo">
+      <section class="section section--tight" aria-labelledby="div-titulo">
         <div class="wrap split split--reverse">
           <div class="atlas atlas--light" data-reveal>
             <ul class="compliance-list">
