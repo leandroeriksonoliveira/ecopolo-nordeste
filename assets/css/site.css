@@ -167,8 +167,10 @@ hr {
 
 :target { scroll-margin-top: calc(var(--header-h) + var(--page-rail-h) + 1.5rem); }
 
-/* Página com trilho de âncoras sticky (home e páginas longas). */
-body:has(.page-rail) {
+/* Página com trilho de âncoras sticky (home e páginas longas).
+   Precisa viver no html/:root — scroll-padding-top é do html e não
+   reavalia var() definido só no body. */
+html:has(.page-rail) {
   --page-rail-h: 2.85rem;
 }
 
