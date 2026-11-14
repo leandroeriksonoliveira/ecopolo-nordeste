@@ -344,36 +344,58 @@
     });
   }
 
-  /* -------------------------------------- Índice de seção ativa (documentos) */
+  /* ---------------------- Índice / page-rail: seção ativa + clique suave */
   var tocLinks = document.querySelectorAll("[data-toc] a[href^='#']");
-  if (tocLinks.length && "IntersectionObserver" in window) {
+  if (tocLinks.length) {
     var byId = {};
     var targets = [];
+
+    function setCurrentToc(id) {
+      each(tocLinks, function (other) {
+        other.removeAttribute("aria-current");
+      });
+      var active = byId[id];
+      if (active) {
+        active.setAttribute("aria-current", "true");
+        if (active.scrollIntoView && active.closest("[data-page-rail]")) {
+          active.scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
+        }
+      }
+    }
+
     each(tocLinks, function (link) {
       var id = link.getAttribute("href").slice(1);
       var section = document.getElementById(id);
       if (!section) return;
       byId[id] = link;
       targets.push(section);
+      link.addEventListener("click", function (event) {
+        // Garante o salto mesmo com header + page-rail sticky.
+        event.preventDefault();
+        setCurrentToc(id);
+        if (history && history.pushState) {
+          history.pushState(null, "", "#" + id);
+        } else {
+          location.hash = id;
+        }
+        section.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      });
     });
-    var tocObserver = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          var link = byId[entry.target.id];
-          if (!link) return;
-          if (entry.isIntersecting) {
-            each(tocLinks, function (other) {
-              other.removeAttribute("aria-current");
-            });
-            link.setAttribute("aria-current", "true");
-          }
-        });
-      },
-      { rootMargin: "-20% 0px -70% 0px" }
-    );
-    targets.forEach(function (section) {
-      tocObserver.observe(section);
-    });
+
+    if (targets.length && "IntersectionObserver" in window) {
+      var tocObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            setCurrentToc(entry.target.id);
+          });
+        },
+        { rootMargin: "-25% 0px -65% 0px", threshold: 0.01 }
+      );
+      targets.forEach(function (section) {
+        tocObserver.observe(section);
+      });
+    }
   }
 
   /* ----------------------------------------------------------- Formulários */

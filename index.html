@@ -43,7 +43,7 @@
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
     <link rel="manifest" href="manifest.webmanifest" />
 
-    <link rel="stylesheet" href="assets/css/site.min.css?v=40bfa7a3dc" />
+    <link rel="stylesheet" href="assets/css/site.min.css?v=de8ab3b6ef" />
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -482,8 +482,22 @@
         </div>
       </section>
 
+      <nav class="page-rail" aria-label="Nesta página" data-toc data-page-rail>
+        <div class="page-rail__scroller">
+          <a href="#por-que">Por que existimos</a>
+          <a href="#territorio">Território</a>
+          <a href="#origem">Origem</a>
+          <a href="#unidades">Unidades</a>
+          <a href="#iniciativas">Iniciativas</a>
+          <a href="#ods">Agenda 2030</a>
+          <a href="#atualizacoes">Atualizações</a>
+          <a href="#publicos">Jornadas</a>
+          <a href="#conformidade-resumo">Conformidade</a>
+        </div>
+      </nav>
+
       <!-- ============================================ PROPOSTA DE VALOR == -->
-      <section class="why-exist" aria-labelledby="valor-titulo">
+      <section class="why-exist" id="por-que" aria-labelledby="valor-titulo">
         <div class="wrap why-exist__stage">
           <div class="why-exist__copy" data-reveal>
             <p class="eyebrow">Por que existimos</p>
@@ -549,7 +563,7 @@
       </section>
 
       <!-- =========================================== STORY ALAGOAS BLEED -->
-      <section class="section section--flush" aria-labelledby="territorio-titulo">
+      <section class="section section--flush" id="territorio" aria-labelledby="territorio-titulo">
         <div class="story-band" data-reveal>
           <figure class="story-band__media">
             <img
@@ -581,53 +595,25 @@
       </section>
 
       <!-- ================================================ DELMIRO GOUVEIA -->
-      <section class="section section--dark" aria-labelledby="delmiro-titulo">
-        <div class="wrap split split--wide-left">
-          <div data-reveal>
+      <section class="section section--dark" id="origem" aria-labelledby="delmiro-titulo">
+        <div class="wrap">
+          <div class="section-head section-head--wide" data-reveal>
             <p class="eyebrow">Onde o projeto nasce</p>
             <h2 id="delmiro-titulo">Delmiro Gouveia, no Alto Sertão de Alagoas</h2>
-            <div class="prose">
-              <p>
-                O lançamento oficial do Eco Polo Nordeste aconteceu em
-                <strong>25 de setembro de 2026</strong>, em Delmiro Gouveia. A
-                escolha do município não é simbólica: é uma estratégia de
-                interiorização da indústria e da tecnologia, levando
-                infraestrutura de ponta para onde ela gera maior transformação
-                econômica por real investido.
-              </p>
-              <p>
-                O modelo prevê que as empresas instaladas compartilhem
-                infraestrutura, energia, tecnologia, conhecimento e soluções
-                sustentáveis — fortalecendo cadeias produtivas em vez de
-                simplesmente alocar galpões em um terreno comum.
-              </p>
-              <p>
-                A implantação é progressiva, por fases e por quadrante, conforme
-                o avanço de licenciamento, terraplanagem e contratação. Os marcos
-                são divulgados nos canais oficiais da companhia.
-              </p>
-            </div>
-
-            <div class="cluster mt-3">
-              <a class="btn btn--gold" href="eco-polo.html">
-                Estrutura do complexo
-                <svg class="btn__arrow" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg>
-              </a>
-              <a class="link-arrow" href="https://www.linkedin.com/company/ecopolonordeste/posts/" target="_blank" rel="noopener noreferrer external">
-                Cobertura do lançamento no LinkedIn
-                <svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-external" /></svg>
-                <span class="visually-hidden">(abre em nova aba)</span>
-              </a>
-            </div>
+            <p class="lede">
+              Lançamento oficial em <strong>25 de setembro de 2026</strong>.
+              Interiorização da indústria e da tecnologia — infraestrutura de
+              ponta onde ela gera maior transformação por real investido.
+            </p>
           </div>
 
-          <div data-reveal>
-            <div class="story-mosaic mb-3">
+          <div class="origin-band" data-reveal>
+            <div class="story-mosaic">
               <figure>
                 <img
                   src="assets/img/story-canyon-xingo.webp"
                   srcset="assets/img/story-canyon-xingo-720.webp 720w, assets/img/story-canyon-xingo-960.webp 960w, assets/img/story-canyon-xingo.webp 900w"
-                  sizes="(min-width: 64rem) 28vw, 94vw"
+                  sizes="(min-width: 64rem) 42vw, 94vw"
                   width="900"
                   height="920"
                   loading="lazy"
@@ -679,10 +665,33 @@
                 </p>
               </li>
             </ol>
-            <p class="note-inline mt-2">
+          </div>
+
+          <div class="prose mt-3" data-reveal>
+            <p>
+              O modelo prevê que as empresas instaladas compartilhem
+              infraestrutura, energia, tecnologia, conhecimento e soluções
+              sustentáveis — fortalecendo cadeias produtivas em vez de
+              simplesmente alocar galpões em um terreno comum. A implantação é
+              progressiva, por fases e por quadrante; os marcos são divulgados
+              nos canais oficiais.
+            </p>
+            <p class="note-inline">
               Datas futuras dependem de licenciamento, contratação e condições de
               obra. Marcos confirmados são publicados nos canais oficiais.
             </p>
+          </div>
+
+          <div class="cluster mt-3" data-reveal>
+            <a class="btn btn--gold" href="eco-polo.html">
+              Estrutura do complexo
+              <svg class="btn__arrow" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg>
+            </a>
+            <a class="link-arrow" href="https://www.linkedin.com/company/ecopolonordeste/posts/" target="_blank" rel="noopener noreferrer external">
+              Cobertura do lançamento no LinkedIn
+              <svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-external" /></svg>
+              <span class="visually-hidden">(abre em nova aba)</span>
+            </a>
           </div>
         </div>
       </section>
@@ -853,7 +862,7 @@
       </section>
 
       <!-- ============================================================ ODS -->
-      <section class="section section--alt" aria-labelledby="ods-titulo">
+      <section class="section section--alt" id="ods" aria-labelledby="ods-titulo">
         <div class="wrap">
           <div class="split" data-reveal>
             <div>
@@ -998,7 +1007,7 @@
       </section>
 
       <!-- ======================================================= JORNADAS -->
-      <section class="section section--dark" aria-labelledby="publicos-titulo">
+      <section class="section section--dark" id="publicos" aria-labelledby="publicos-titulo">
         <div class="wrap">
           <div class="section-head section-head--wide" data-reveal>
             <p class="eyebrow">Por onde começar</p>
@@ -1040,7 +1049,7 @@
       </section>
 
       <!-- ===================================================== CONFORMIDADE -->
-      <section class="section section--alt" aria-labelledby="conf-titulo">
+      <section class="section section--alt" id="conformidade-resumo" aria-labelledby="conf-titulo">
         <div class="wrap split split--reverse">
           <div class="atlas atlas--light" data-reveal>
             <ul class="compliance-list">
@@ -1547,8 +1556,8 @@
     </svg>
 
 
-    <script src="assets/js/config.js?v=40bfa7a3dc"></script>
-    <script src="assets/js/consent.js?v=40bfa7a3dc" defer></script>
-    <script src="assets/js/site.js?v=40bfa7a3dc" defer></script>
+    <script src="assets/js/config.js?v=de8ab3b6ef"></script>
+    <script src="assets/js/consent.js?v=de8ab3b6ef" defer></script>
+    <script src="assets/js/site.js?v=de8ab3b6ef" defer></script>
   </body>
 </html>
