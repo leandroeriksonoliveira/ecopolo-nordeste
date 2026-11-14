@@ -119,11 +119,17 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + var(--page-rail-h) + 1.25rem);
   background: #ffffff;
   /* Não usar overflow-x no html: em vários motores isso cria um
      scroll container e quebra position:sticky no cabeçalho. */
+}
+/* Smooth só onde não há page-rail: com trilho sticky o smooth nativo
+   interrompe o salto no meio do caminho. */
+@media (prefers-reduced-motion: no) {
+  html:not(:has(.page-rail)) {
+    scroll-behavior: smooth;
+  }
 }
 
 body {

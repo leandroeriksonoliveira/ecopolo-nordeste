@@ -369,12 +369,30 @@
       if (!section) return;
       byId[id] = link;
       targets.push(section);
-      link.addEventListener("click", function () {
-        // Navegação nativa por hash + scroll-padding (html/body).
-        // Só marcamos o estado ativo; o browser faz o salto.
+      link.addEventListener("click", function (event) {
+        // Salto instantâneo: scroll-behavior:smooth + page-rail sticky
+        // interrompe o scroll no meio do caminho em Chromium.
+        event.preventDefault();
         setCurrentToc(id);
+        if (history && history.pushState) {
+          history.pushState(null, "", "#" + id);
+        } else {
+          location.hash = id;
+        }
+        section.scrollIntoView({ block: "start", behavior: "auto" });
       });
     });
+
+    // Abertura direta com hash na URL (compartilhar / reload).
+    if (location.hash && location.hash.length > 1) {
+      var initial = document.getElementById(location.hash.slice(1));
+      if (initial) {
+        window.requestAnimationFrame(function () {
+          initial.scrollIntoView({ block: "start", behavior: "auto" });
+          setCurrentToc(initial.id);
+        });
+      }
+    }
 
     if (targets.length && "IntersectionObserver" in window) {
       var tocObserver = new IntersectionObserver(
