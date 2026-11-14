@@ -86,12 +86,39 @@
   var navToggle = document.querySelector("[data-nav-toggle]");
   var navToggleLabel = document.querySelector("[data-nav-toggle-label]");
 
+  function closeAllSubmenus(except) {
+    each(document.querySelectorAll(".nav__item--has-sub.is-open"), function (item) {
+      if (except && item === except) return;
+      item.classList.remove("is-open");
+      var trigger = item.querySelector("[data-nav-sub-trigger]");
+      if (trigger) trigger.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  each(document.querySelectorAll("[data-nav-sub-trigger]"), function (trigger) {
+    var item = trigger.closest(".nav__item--has-sub");
+    if (!item) return;
+
+    trigger.addEventListener("click", function (event) {
+      event.preventDefault();
+      var open = !item.classList.contains("is-open");
+      closeAllSubmenus(open ? item : null);
+      item.classList.toggle("is-open", open);
+      trigger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".nav__item--has-sub")) closeAllSubmenus();
+  });
+
   if (navToggle && nav) {
     var setNav = function (open) {
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
       nav.setAttribute("data-open", open ? "true" : "false");
       if (navToggleLabel) navToggleLabel.textContent = open ? I18N.navOpen : I18N.navClosed;
       document.documentElement.style.overflow = open ? "hidden" : "";
+      if (!open) closeAllSubmenus();
     };
 
     navToggle.addEventListener("click", function () {
@@ -99,11 +126,19 @@
     });
 
     nav.addEventListener("click", function (event) {
+      // Fecha o drawer móvel ao seguir um link (não ao abrir submenu).
       if (event.target.closest("a")) setNav(false);
     });
 
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") {
+      if (event.key !== "Escape") return;
+      var openSub = document.querySelector(".nav__item--has-sub.is-open [data-nav-sub-trigger]");
+      if (openSub) {
+        closeAllSubmenus();
+        openSub.focus();
+        return;
+      }
+      if (navToggle.getAttribute("aria-expanded") === "true") {
         setNav(false);
         navToggle.focus();
       }
@@ -114,6 +149,7 @@
       if (window.innerWidth > 1216 && navToggle.getAttribute("aria-expanded") === "true") {
         setNav(false);
       }
+      if (window.innerWidth > 1216) closeAllSubmenus();
     });
   }
 

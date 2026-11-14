@@ -86,24 +86,60 @@ SITE["com_full"] = (
 )
 SITE["sameas"] = [SITE["linkedin"], SITE["instagram"]]
 
+# Navegação agrupada (clareza do legado + páginas extras sem barra plana de 7 itens).
+# type "link" = item direto; type "group" = submenu Institucional / Complexo.
 NAV_BY_LANG = {
     "pt": [
-        ("index.html", "Início"),
-        ("quem-somos.html", "Quem somos"),
-        ("eco-polo.html", "O complexo"),
-        ("esg.html", "ESG e ODS"),
-        ("investidores.html", "Investidores"),
-        ("trabalhe-conosco.html", "Carreiras"),
-        ("conformidade.html", "Conformidade"),
+        {"type": "link", "href": "index.html", "label": "Início"},
+        {
+            "type": "group",
+            "id": "institucional",
+            "label": "Institucional",
+            "children": [
+                ("quem-somos.html", "Quem somos"),
+                ("investidores.html", "Investidores"),
+                ("trabalhe-conosco.html", "Carreiras"),
+                ("conformidade.html", "Conformidade"),
+            ],
+        },
+        {
+            "type": "group",
+            "id": "complexo",
+            "label": "Complexo",
+            "children": [
+                ("eco-polo.html", "O complexo"),
+                ("eco-polo.html#unidades", "Unidades"),
+                ("eco-polo.html#iniciativas", "Iniciativas"),
+            ],
+        },
+        {"type": "link", "href": "esg.html", "label": "ESG"},
+        {"type": "link", "href": "contato.html", "label": "Contato"},
     ],
     "en": [
-        ("index.html", "Home"),
-        ("quem-somos.html", "About"),
-        ("eco-polo.html", "The Complex"),
-        ("esg.html", "ESG & SDGs"),
-        ("investidores.html", "Investors"),
-        ("trabalhe-conosco.html", "Careers"),
-        ("conformidade.html", "Compliance"),
+        {"type": "link", "href": "index.html", "label": "Home"},
+        {
+            "type": "group",
+            "id": "institutional",
+            "label": "Institutional",
+            "children": [
+                ("quem-somos.html", "About"),
+                ("investidores.html", "Investors"),
+                ("trabalhe-conosco.html", "Careers"),
+                ("conformidade.html", "Compliance"),
+            ],
+        },
+        {
+            "type": "group",
+            "id": "complex",
+            "label": "Complex",
+            "children": [
+                ("eco-polo.html", "The complex"),
+                ("eco-polo.html#unidades", "Units"),
+                ("eco-polo.html#iniciativas", "Initiatives"),
+            ],
+        },
+        {"type": "link", "href": "esg.html", "label": "ESG"},
+        {"type": "link", "href": "contato.html", "label": "Contact"},
     ],
 }
 
@@ -207,13 +243,65 @@ def parse_page(text: str) -> tuple[dict, str]:
     return meta, "\n".join(lines[body_start:]).strip()
 
 
+def _nav_base(href: str) -> str:
+    return href.split("#", 1)[0]
+
+
 def render_nav(active: str, lang: str) -> str:
-    items = []
-    for href, label in NAV_BY_LANG[lang]:
-        current = ' aria-current="page"' if href == active else ""
-        items.append(
-            f'<li><a class="nav__link" href="{href}"{current}>{html.escape(label)}</a></li>'
+    """Monta a barra: links diretos + grupos com submenu acessível."""
+    is_en = lang == "en"
+    items: list[str] = []
+
+    for entry in NAV_BY_LANG[lang]:
+        if entry["type"] == "link":
+            href = entry["href"]
+            current = ' aria-current="page"' if href == active else ""
+            items.append(
+                f'<li class="nav__item">'
+                f'<a class="nav__link" href="{html.escape(href, quote=True)}"{current}>'
+                f'{html.escape(entry["label"])}</a></li>'
+            )
+            continue
+
+        group_id = entry["id"]
+        children = entry["children"]
+        child_bases = {_nav_base(h) for h, _ in children}
+        group_current = active in child_bases
+        panel_id = f"nav-sub-{group_id}"
+        trigger_current = ' data-current="true"' if group_current else ""
+        sub_items: list[str] = []
+        for href, label in children:
+            base = _nav_base(href)
+            # Só o destino “principal” (sem âncora) leva aria-current quando a página bate.
+            current = (
+                ' aria-current="page"'
+                if base == active and "#" not in href
+                else ""
+            )
+            sub_items.append(
+                f'<li><a class="nav__sub-link" href="{html.escape(href, quote=True)}"'
+                f"{current}>{html.escape(label)}</a></li>"
+            )
+        chevron = (
+            '<svg class="nav__chevron" width="12" height="12" aria-hidden="true" '
+            'focusable="false"><use href="#i-chevron-down" /></svg>'
         )
+        submenu_label = (
+            f'Submenu: {entry["label"]}'
+            if is_en
+            else f'Submenu: {entry["label"]}'
+        )
+        items.append(
+            f'<li class="nav__item nav__item--has-sub">'
+            f'<button type="button" class="nav__link nav__trigger"'
+            f' aria-expanded="false" aria-controls="{panel_id}"'
+            f' data-nav-sub-trigger{trigger_current}>'
+            f'{html.escape(entry["label"])}{chevron}</button>'
+            f'<ul class="nav__sub" id="{panel_id}" data-nav-sub'
+            f' aria-label="{html.escape(submenu_label, quote=True)}">'
+            f'{"".join(sub_items)}</ul></li>'
+        )
+
     return "\n          ".join(items)
 
 
