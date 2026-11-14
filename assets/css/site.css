@@ -362,6 +362,11 @@ a:hover { text-decoration-color: currentColor; }
   .section-compose > .grid--4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  /* Intro + cards no mesmo viewport: não esperar o reveal staggered. */
+  .section-compose [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .grid { display: grid; gap: clamp(0.55rem, 0.4rem + 0.7vw, 0.95rem); }
@@ -2427,13 +2432,18 @@ legend {
   z-index: 1;
   display: grid;
   gap: clamp(0.9rem, 0.55rem + 1.1vw, 1.6rem);
-  align-items: center;
+  align-items: start;
 }
 @media (min-width: 64rem) {
   .why-exist__stage {
     grid-template-columns: minmax(17rem, 0.92fr) minmax(22rem, 1.18fr);
     gap: clamp(1.25rem, 0.9rem + 1.6vw, 2.4rem);
   }
+}
+/* Não esconder o bloco com data-reveal: o vazio à direita era opacity:0 nos cards. */
+.why-exist [data-reveal] {
+  opacity: 1;
+  transform: none;
 }
 .why-exist__copy {
   display: flex;
