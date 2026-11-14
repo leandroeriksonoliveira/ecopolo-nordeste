@@ -43,7 +43,7 @@
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
     <link rel="manifest" href="manifest.webmanifest" />
 
-    <link rel="stylesheet" href="assets/css/site.min.css?v=00872281f0" />
+    <link rel="stylesheet" href="assets/css/site.min.css?v=c6cb6b5750" />
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -483,53 +483,66 @@
       </section>
 
       <!-- ============================================ PROPOSTA DE VALOR == -->
-      <section class="section section--tight" aria-labelledby="valor-titulo">
-        <div class="wrap">
-          <div class="section-head" data-reveal>
+      <section class="why-exist" aria-labelledby="valor-titulo">
+        <div class="wrap why-exist__stage">
+          <div class="why-exist__copy" data-reveal>
             <p class="eyebrow">Por que existimos</p>
             <h2 id="valor-titulo">
               Três gargalos travam a indústria intensiva no Brasil. O complexo
               foi desenhado em torno deles.
             </h2>
             <p class="lede">
-              Energia previsível, água disponível e licença social são hoje o
-              caminho crítico de qualquer operação de alta densidade. A Eco Polo
-              Nordeste resolve os três no mesmo território, antes da chegada da
-              empresa instalada.
+              Energia previsível, água disponível e licença social são o caminho
+              crítico de qualquer operação de alta densidade. Resolvemos os três
+              no mesmo território, antes da chegada da empresa instalada.
             </p>
           </div>
 
-          <div class="grid grid--3">
-            <article class="card card--hover" data-reveal="stagger">
-              <img class="icon-pict" src="assets/img/icon-energia-renovavel.webp" width="220" height="220" loading="lazy" decoding="async" alt="Pictograma de energia renovável: um plugue elétrico sobre um caule com folhas" />
-              <h3>Segurança energética</h3>
-              <p>
-                Suprimento projetado em matriz renovável, off-grid e dedicada, com
-                foco em eficiência energética medida por <abbr title="Power Usage Effectiveness — eficiência do uso de energia">PUE</abbr>.
-                A meta é desacoplar a operação da volatilidade tarifária e da fila
-                de conexão à rede.
-              </p>
+          <div class="why-exist__cards">
+            <article class="why-card" data-reveal="stagger">
+              <div class="why-card__mark">
+                <span class="why-card__num" aria-hidden="true">01</span>
+                <img class="icon-pict" src="assets/img/icon-energia-renovavel.webp" width="220" height="220" loading="lazy" decoding="async" alt="" />
+              </div>
+              <div class="why-card__body">
+                <h3>Segurança energética</h3>
+                <p>
+                  Matriz renovável, off-grid e dedicada, com eficiência medida por
+                  <abbr title="Power Usage Effectiveness — eficiência do uso de energia">PUE</abbr>
+                  — fora da volatilidade tarifária e da fila de conexão à rede.
+                </p>
+              </div>
             </article>
 
-            <article class="card card--hover" data-reveal="stagger">
-              <img class="icon-pict" src="assets/img/icon-agua-ciclo.webp" width="220" height="220" loading="lazy" decoding="async" alt="Pictograma de gestão hídrica: uma gota d’água e uma folha" />
-              <h3>Resiliência hídrica</h3>
-              <p>
-                Água industrial e tecnologias de ciclo fechado, com
-                <abbr title="Water Usage Effectiveness — eficiência do uso de água">WUE</abbr>
-                otimizado e reaproveitamento de efluentes tratados. O recurso
-                hídrico deixa de ser o fator limitante da expansão.
-              </p>
+            <article class="why-card" data-reveal="stagger">
+              <div class="why-card__mark">
+                <span class="why-card__num" aria-hidden="true">02</span>
+                <img class="icon-pict" src="assets/img/icon-agua-ciclo.webp" width="220" height="220" loading="lazy" decoding="async" alt="" />
+              </div>
+              <div class="why-card__body">
+                <h3>Resiliência hídrica</h3>
+                <p>
+                  Água industrial em ciclo fechado, com
+                  <abbr title="Water Usage Effectiveness — eficiência do uso de água">WUE</abbr>
+                  otimizado e reaproveitamento de efluentes — a água deixa de
+                  limitar a expansão.
+                </p>
+              </div>
             </article>
 
-            <article class="card card--hover" data-reveal="stagger">
-              <img class="icon-pict" src="assets/img/logo-lotus.webp" width="217" height="171" loading="lazy" decoding="async" alt="Emblema da Eco Polo Nordeste, um lótus em traço verde" />
-              <h3>Conformidade e ESG</h3>
-              <p>
-                Governança, alinhamento a frameworks internacionais e à Agenda
-                2030 da ONU, para que a empresa instalada herde um ambiente
-                regulatório e reputacional já estruturado.
-              </p>
+            <article class="why-card" data-reveal="stagger">
+              <div class="why-card__mark">
+                <span class="why-card__num" aria-hidden="true">03</span>
+                <img class="icon-pict" src="assets/img/logo-lotus.webp" width="217" height="171" loading="lazy" decoding="async" alt="" />
+              </div>
+              <div class="why-card__body">
+                <h3>Conformidade e ESG</h3>
+                <p>
+                  Governança alinhada a frameworks internacionais e à Agenda 2030,
+                  para a empresa instalada herdar um ambiente regulatório e
+                  reputacional já estruturado.
+                </p>
+              </div>
             </article>
           </div>
         </div>
@@ -687,7 +700,7 @@
             </p>
           </div>
 
-          <div class="grid grid--2">
+            <div class="grid grid--2">
             <article class="unit" data-reveal="stagger">
               <div class="media">
                 <img src="assets/img/unidade-alagoas.webp" srcset="assets/img/unidade-alagoas-760.webp 760w, assets/img/unidade-alagoas.webp 1400w" sizes="(min-width: 64rem) 46vw, 94vw" width="1400" height="787" loading="lazy" decoding="async" alt="Cartão institucional da unidade de Alagoas, com a bandeira do estado" />
@@ -765,6 +778,7 @@
             </article>
           </div>
 
+
           <div class="callout mt-3" data-reveal>
             <h3>Sobre estes números</h3>
             <p>
@@ -791,7 +805,7 @@
             </p>
           </div>
 
-          <div class="grid grid--3">
+            <div class="grid grid--3">
             <article class="card card--hover" data-reveal="stagger">
               <div class="media"><img src="assets/img/iniciativa-silos.webp" width="712" height="712" loading="lazy" decoding="async" alt="Silos de grãos ao lado de um campo recém-plantado" /></div>
               <span class="card__num">01</span>
@@ -829,6 +843,7 @@
               <p>Pesquisa e desenvolvimento aplicados a materiais e processos industriais de baixo impacto.</p>
             </article>
           </div>
+
 
           <p class="note-inline mt-3">
             Iniciativas em estruturação. Escopos, investimentos e cronogramas são
@@ -898,7 +913,7 @@
             </p>
           </div>
 
-          <div class="grid grid--3">
+            <div class="grid grid--3">
             <article class="update" data-reveal="stagger">
               <p class="update__meta">
                 <time datetime="2026-09-25">25 de setembro de 2026</time>
@@ -964,6 +979,7 @@
             </article>
           </div>
 
+
           <div class="updates-footer mt-3" data-reveal>
             <a class="btn btn--ghost" href="https://www.linkedin.com/company/ecopolonordeste/posts/" target="_blank" rel="noopener noreferrer external">
               <svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-linkedin" /></svg>
@@ -993,7 +1009,7 @@
             </p>
           </div>
 
-          <div class="grid grid--4">
+            <div class="grid grid--4">
             <a class="audience" href="investidores.html" data-reveal="stagger">
               <span class="card__icon"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-chart" /></svg></span>
               <h3>Investidor</h3>
@@ -1019,6 +1035,7 @@
               <span class="audience__go">Trabalhe conosco <svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></span>
             </a>
           </div>
+
         </div>
       </section>
 
@@ -1530,8 +1547,8 @@
     </svg>
 
 
-    <script src="assets/js/config.js?v=00872281f0"></script>
-    <script src="assets/js/consent.js?v=00872281f0" defer></script>
-    <script src="assets/js/site.js?v=00872281f0" defer></script>
+    <script src="assets/js/config.js?v=c6cb6b5750"></script>
+    <script src="assets/js/consent.js?v=c6cb6b5750" defer></script>
+    <script src="assets/js/site.js?v=c6cb6b5750" defer></script>
   </body>
 </html>
