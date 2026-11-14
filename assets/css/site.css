@@ -798,7 +798,6 @@ a:hover { text-decoration-color: currentColor; }
   .hero h1 { font-size: 1.62rem; }
   .hero__lede { margin-bottom: 0.75rem; }
   .hero__states { margin-bottom: 0.75rem; }
-  .hero__actions { margin-bottom: 0.75rem; }
 }
 
 .hero-slide {
@@ -976,7 +975,7 @@ a:hover { text-decoration-color: currentColor; }
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0;
 }
 .hero__states {
   display: flex;
