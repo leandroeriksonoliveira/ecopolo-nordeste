@@ -12,6 +12,44 @@
   "use strict";
 
   var CONFIG = window.EPN_CONFIG || {};
+  var IS_EN = (document.documentElement.lang || "pt-BR").toLowerCase().indexOf("en") === 0;
+  var I18N = IS_EN
+    ? {
+        noneRecorded:
+          "No decision recorded in this browser. Only strictly necessary cookies are in use.",
+        recordId: "Record ID: ",
+        decidedAt: "Decision date and time: ",
+        textVersion: "Accepted notice version: ",
+        method: "Decision method: ",
+        categories: "Authorized categories: ",
+        locale: "en-US",
+        catNames: {
+          necessarios: "strictly necessary",
+          preferencias: "preferences",
+          estatisticas: "analytics",
+          marketing: "marketing",
+        },
+        methods: {
+          "aceitar-todos": "accept-all",
+          "rejeitar-nao-essenciais": "reject-non-essential",
+          personalizado: "custom",
+          "revogacao-total": "full-revocation",
+          "incorporado-marketing": "embedded-marketing",
+        },
+      }
+    : {
+        noneRecorded:
+          "Nenhuma decisão registrada neste navegador. Apenas cookies estritamente " +
+          "necessários estão em uso.",
+        recordId: "Identificador do registro: ",
+        decidedAt: "Data e hora da decisão: ",
+        textVersion: "Versão do texto aceito: ",
+        method: "Forma da decisão: ",
+        categories: "Categorias autorizadas: ",
+        locale: "pt-BR",
+        catNames: null,
+        methods: null,
+      };
   var STORE_KEY = "epn.consent.v1";
   var CATEGORIES = ["preferencias", "estatisticas", "marketing"];
 
@@ -293,22 +331,24 @@
     function paint() {
       var record = readRecord();
       if (!record) {
-        target.textContent =
-          "Nenhuma decisão registrada neste navegador. Apenas cookies estritamente " +
-          "necessários estão em uso.";
+        target.textContent = I18N.noneRecorded;
         return;
       }
       var on = Object.keys(record.categories)
         .filter(function (key) {
           return record.categories[key];
         })
+        .map(function (key) {
+          return (I18N.catNames && I18N.catNames[key]) || key;
+        })
         .join(", ");
+      var methodLabel = (I18N.methods && I18N.methods[record.method]) || record.method;
       target.textContent =
-        "Identificador do registro: " + record.id + "\n" +
-        "Data e hora da decisão: " + new Date(record.decidedAt).toLocaleString("pt-BR") + "\n" +
-        "Versão do texto aceito: " + record.textVersion + "\n" +
-        "Forma da decisão: " + record.method + "\n" +
-        "Categorias autorizadas: " + on;
+        I18N.recordId + record.id + "\n" +
+        I18N.decidedAt + new Date(record.decidedAt).toLocaleString(I18N.locale) + "\n" +
+        I18N.textVersion + record.textVersion + "\n" +
+        I18N.method + methodLabel + "\n" +
+        I18N.categories + on;
     }
 
     paint();

@@ -1,0 +1,90 @@
+    <!--
+      Cookie consent layer.
+      True opt-in: nothing beyond strictly necessary is activated before the
+      visitor's choice. The consent record (id, timestamp, notice version, and
+      categories) is viewable in cookies.html.
+    -->
+    <div
+      class="cookie-banner"
+      data-consent-banner
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby="consent-titulo"
+      aria-describedby="consent-texto"
+    >
+      <div class="cookie-banner__card">
+        <h2 id="consent-titulo">Your cookie choices</h2>
+        <p id="consent-texto">
+          We use strictly necessary cookies to operate this website. Preference,
+          analytics, and marketing cookies are activated only if you authorize
+          them. You can change your choice at any time via “Manage cookies” in
+          the footer. See details in our
+          <a href="cookies.html">Cookie Policy</a> and
+          <a href="privacidade.html">Privacy Policy</a>.
+        </p>
+
+        <div class="consent-prefs" data-consent-prefs hidden>
+          <div class="consent-item">
+            <input type="checkbox" id="ck-necessarios" checked disabled />
+            <label for="ck-necessarios">
+              <span class="consent-item__name">Strictly necessary — always active</span>
+              <span class="consent-item__desc">
+                Security, load balancing, and storing your cookie consent choice.
+                The site cannot function without them. Legal basis: legitimate
+                interest to deliver the requested service.
+              </span>
+            </label>
+          </div>
+          <div class="consent-item">
+            <input type="checkbox" id="ck-preferencias" data-consent-category="preferencias" />
+            <label for="ck-preferencias">
+              <span class="consent-item__name">Preferences</span>
+              <span class="consent-item__desc">
+                Remember display choices such as language and collapsed section
+                states. Legal basis: consent.
+              </span>
+            </label>
+          </div>
+          <div class="consent-item">
+            <input type="checkbox" id="ck-estatisticas" data-consent-category="estatisticas" />
+            <label for="ck-estatisticas">
+              <span class="consent-item__name">Analytics</span>
+              <span class="consent-item__desc">
+                Aggregated audience measurement with personal-data minimization
+                to understand which content is useful. Legal basis: consent.
+              </span>
+            </label>
+          </div>
+          <div class="consent-item">
+            <input type="checkbox" id="ck-marketing" data-consent-category="marketing" />
+            <label for="ck-marketing">
+              <span class="consent-item__name">Marketing</span>
+              <span class="consent-item__desc">
+                Institutional campaign measurement and embedded third-party
+                content such as interactive maps and videos. Legal basis: consent.
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="cookie-banner__actions">
+          <button class="btn btn--gold" type="button" data-consent-accept-all>
+            Accept all
+          </button>
+          <button class="btn btn--ghost" type="button" data-consent-reject>
+            Reject non-essential
+          </button>
+          <button class="btn btn--ghost" type="button" data-consent-customize aria-expanded="false">
+            Customize
+          </button>
+          <button class="btn btn--ghost" type="button" data-consent-save hidden>
+            Save my choices
+          </button>
+        </div>
+
+        <p class="small mute mt-2 mb-0">
+          Consent notice version {{site_consent_version}} ·
+          {{site_legal_name}} · CNPJ {{site_cnpj}}
+        </p>
+      </div>
+    </div>

@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-Verificação automática do site gerado.
+Verificação automática do site gerado (PT-BR e EN).
 
     python3 tools/check.py
 
-Checa, sem rede: links internos e âncoras, unicidade de título e descrição,
-presença de canonical / Open Graph / JSON-LD, identidade legal e perfis sociais
-em todas as páginas, rótulo de cada campo de formulário, atributos de segurança
-em links externos, alternativa textual de imagem, hierarquia de títulos,
-referências a ícones do sprite e itens do sitemap.
+Checa, sem rede: links internos e âncoras (em PT e /en/), unicidade de título e
+descrição por idioma, presença de canonical / hreflang / Open Graph / JSON-LD,
+identidade legal e perfis sociais em todas as páginas, rótulo de cada campo de
+formulário, atributos de segurança em links externos, alternativa textual de
+imagem, existência física de imagens/srcset, hierarquia de títulos, ícones do
+sprite, ausência de style="" inline (CSP) e cobertura do sitemap.
 """
 
 from __future__ import annotations
@@ -21,7 +22,9 @@ import sys
 from urllib.parse import urldefrag, urlparse
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAGES = sorted(p for p in ROOT.glob("*.html"))
+PT_PAGES = sorted(p for p in ROOT.glob("*.html"))
+EN_PAGES = sorted(p for p in (ROOT / "en").glob("*.html"))
+ALL_PAGES = PT_PAGES + EN_PAGES
 
 CNPJ = "44.185.321/0001-83"
 LINKEDIN = "linkedin.com/company/ecopolonordeste"
@@ -47,6 +50,7 @@ class Doc(html.parser.HTMLParser):
         self.uses: list[str] = []
         self.symbols: set[str] = set()
         self.iframes: list[dict] = []
+        self.inline_styles: int = 0
         self._heading: int | None = None
         self._text: list[str] = []
         self._in_label = False
@@ -57,6 +61,8 @@ class Doc(html.parser.HTMLParser):
         attrs = dict(attrs_list)
         if "id" in attrs:
             self.ids.add(attrs["id"])
+        if "style" in attrs:
+            self.inline_styles += 1
         if tag == "a":
             self.links.append(attrs)
         elif tag == "img":
@@ -113,23 +119,17 @@ def meta(raw: str, pattern: str) -> str | None:
     return match.group(1) if match else None
 
 
-def main() -> int:
-    if not PAGES:
-        print("Nenhum HTML encontrado. Rode tools/build.py primeiro.")
-        return 1
-
+def check_page_group(pages: list[pathlib.Path], expected_lang: str, ids_by_rel: dict[str, set[str]], docs: dict[str, tuple[Doc, str]]) -> None:
     titles: dict[str, str] = {}
     descriptions: dict[str, str] = {}
-    ids_by_page: dict[str, set[str]] = {}
-    docs: dict[str, tuple[Doc, str]] = {}
 
-    for path in PAGES:
-        docs[path.name] = parse(path)
-        ids_by_page[path.name] = docs[path.name][0].ids
+    for path in pages:
+        rel = path.relative_to(ROOT).as_posix()
+        doc, raw = docs[rel]
 
-    for path in PAGES:
-        name = path.name
-        doc, raw = docs[name]
+        # ---------------------------------------------------- CSP inline style
+        if doc.inline_styles > 0:
+            fail(rel, f"{doc.inline_styles} atributo(s) style= inline violam CSP style-src 'self'")
 
         # ---------------------------------------------------- metadados
         title = meta(raw, r"<title>(.*?)</title>")
@@ -137,89 +137,105 @@ def main() -> int:
         canonical = meta(raw, r'<link rel="canonical" href="(.*?)"')
 
         if not title:
-            fail(name, "sem <title>")
+            fail(rel, "sem <title>")
         elif title in titles:
-            fail(name, f"título duplicado com {titles[title]}")
+            fail(rel, f"título duplicado com {titles[title]}")
         else:
-            titles[title] = name
+            titles[title] = rel
 
         if not description:
-            fail(name, "sem meta description")
+            fail(rel, "sem meta description")
         elif description in descriptions:
-            fail(name, f"descrição duplicada com {descriptions[description]}")
+            fail(rel, f"descrição duplicada com {descriptions[description]}")
         else:
-            descriptions[description] = name
+            descriptions[description] = rel
             if len(description) < 70 or len(description) > 320:
-                notes.append(f"{name}: descrição com {len(description)} caracteres")
+                notes.append(f"{rel}: descrição com {len(description)} caracteres")
 
         if not canonical:
-            fail(name, "sem link canonical")
+            fail(rel, "sem link canonical")
 
-        for prop in ("og:title", "og:description", "og:image", "og:url", "og:type"):
+        if path.name != "404.html":
+            for hreflang in ("pt-BR", "en", "x-default"):
+                if f'hreflang="{hreflang}"' not in raw:
+                    fail(rel, f"sem link alternate hreflang={hreflang}")
+
+        for prop in ("og:title", "og:description", "og:image", "og:url", "og:type", "og:locale"):
             if f'property="{prop}"' not in raw:
-                fail(name, f"sem {prop}")
+                fail(rel, f"sem {prop}")
         if 'name="twitter:card"' not in raw:
-            fail(name, "sem cartão twitter")
+            fail(rel, "sem cartão twitter")
         if 'name="robots"' not in raw:
-            fail(name, "sem diretiva robots")
-        if 'lang="pt-BR"' not in raw:
-            fail(name, "sem idioma pt-BR no <html>")
+            fail(rel, "sem diretiva robots")
+        if f'lang="{expected_lang}"' not in raw:
+            fail(rel, f"esperado lang=\"{expected_lang}\" no <html>")
 
         # ---------------------------------------------------------- JSON-LD
         blocks = re.findall(
             r'<script type="application/ld\+json">(.*?)</script>', raw, re.S
         )
-        if not blocks and name not in ("404.html",):
-            fail(name, "sem dados estruturados JSON-LD")
+        if not blocks and path.name != "404.html":
+            fail(rel, "sem dados estruturados JSON-LD")
         org_found = False
         for block in blocks:
             try:
                 data = json.loads(block)
             except json.JSONDecodeError as err:
-                fail(name, f"JSON-LD inválido: {err}")
+                fail(rel, f"JSON-LD inválido: {err}")
                 continue
             if data.get("@type") == "Organization":
                 org_found = True
                 if data.get("taxID") != CNPJ:
-                    fail(name, "Organization sem taxID com o CNPJ correto")
+                    fail(rel, "Organization sem taxID com o CNPJ correto")
                 same_as = data.get("sameAs") or []
                 if not any(LINKEDIN in s for s in same_as):
-                    fail(name, "Organization sem LinkedIn em sameAs")
+                    fail(rel, "Organization sem LinkedIn em sameAs")
                 if not any(INSTAGRAM in s for s in same_as):
-                    fail(name, "Organization sem Instagram em sameAs")
-        if name == "index.html" and not org_found:
-            fail(name, "home sem JSON-LD Organization")
+                    fail(rel, "Organization sem Instagram em sameAs")
+        if path.name == "index.html" and not org_found:
+            fail(rel, "home sem JSON-LD Organization")
 
         # -------------------------------------------- identidade e perfis
         if CNPJ not in raw:
-            fail(name, "CNPJ ausente na página")
+            fail(rel, "CNPJ ausente na página")
         if "Eco Polo Nordeste LTDA" not in raw:
-            fail(name, "razão social ausente na página")
+            fail(rel, "razão social ausente na página")
         if LINKEDIN not in raw:
-            fail(name, "link do LinkedIn ausente")
+            fail(rel, "link do LinkedIn ausente")
         if INSTAGRAM not in raw:
-            fail(name, "link do Instagram ausente")
+            fail(rel, "link do Instagram ausente")
 
         # ------------------------------------------- estrutura e acesso
         if raw.count("<h1") != 1:
-            fail(name, f"deveria ter exatamente um h1, tem {raw.count('<h1')}")
+            fail(rel, f"deveria ter exatamente um h1, tem {raw.count('<h1')}")
         if 'class="skip-link"' not in raw:
-            fail(name, "sem link de atalho para o conteúdo")
+            fail(rel, "sem link de atalho para o conteúdo")
         if 'id="conteudo"' not in raw:
-            fail(name, "sem landmark principal #conteudo")
+            fail(rel, "sem landmark principal #conteudo")
 
         levels = [level for level, _ in doc.headings]
         for before, after in zip(levels, levels[1:]):
             if after > before + 1:
-                fail(name, f"salto de título h{before} → h{after}")
+                fail(rel, f"salto de título h{before} → h{after}")
 
         for image in doc.images:
             if "alt" not in image:
-                fail(name, f"imagem sem alt: {image.get('src', '?')}")
+                fail(rel, f"imagem sem alt: {image.get('src', '?')}")
+            src = image.get("src", "")
+            if src and not src.startswith(("http://", "https://", "data:")):
+                resolved = (path.parent / src).resolve()
+                if not resolved.exists():
+                    fail(rel, f"imagem inexistente: {src}")
+            srcset = image.get("srcset", "")
+            if srcset:
+                for part in srcset.split(","):
+                    candidate = part.strip().split()[0]
+                    if candidate and not (path.parent / candidate).resolve().exists():
+                        fail(rel, f"imagem srcset inexistente: {candidate}")
 
         for frame in doc.iframes:
             if not frame.get("title"):
-                fail(name, "iframe sem title")
+                fail(rel, "iframe sem title")
 
         # ----------------------------------------------------- formulários
         for control in doc.controls:
@@ -234,7 +250,7 @@ def main() -> int:
             )
             if not has_label:
                 fail(
-                    name,
+                    rel,
                     f"campo sem rótulo: <{control['_tag']} name={control.get('name')!r}>",
                 )
 
@@ -242,33 +258,62 @@ def main() -> int:
         for link in doc.links:
             href = link.get("href", "").strip()
             if not href:
-                fail(name, "link sem href")
+                fail(rel, "link sem href")
                 continue
             if href.startswith(("mailto:", "tel:", "javascript:")):
                 continue
 
             parsed = urlparse(href)
             if parsed.scheme in ("http", "https"):
-                rel = (link.get("rel") or "").lower()
-                if link.get("target") == "_blank" and "noopener" not in rel:
-                    fail(name, f"link externo em nova aba sem noopener: {href}")
+                rel_attr = (link.get("rel") or "").lower()
+                if link.get("target") == "_blank" and "noopener" not in rel_attr:
+                    fail(rel, f"link externo em nova aba sem noopener: {href}")
                 continue
 
             target, fragment = urldefrag(href)
             if not target:
                 if fragment and fragment not in doc.ids:
-                    fail(name, f"âncora inexistente nesta página: #{fragment}")
+                    fail(rel, f"âncora inexistente nesta página: #{fragment}")
                 continue
-            if not (ROOT / target).exists():
-                fail(name, f"link interno quebrado: {href}")
-            elif fragment and target.endswith(".html"):
-                if fragment not in ids_by_page.get(target, set()):
-                    fail(name, f"âncora inexistente em {target}: #{fragment}")
+            resolved = (path.parent / target).resolve()
+            if not resolved.exists():
+                fail(rel, f"link interno quebrado: {href}")
+            elif fragment and resolved.suffix == ".html":
+                target_rel = resolved.relative_to(ROOT).as_posix()
+                if fragment not in ids_by_rel.get(target_rel, set()):
+                    fail(rel, f"âncora inexistente em {target_rel}: #{fragment}")
 
         # ----------------------------------------------- sprite de ícones
         missing = {ref for ref in doc.uses if ref not in doc.symbols}
         if missing:
-            fail(name, f"ícones referenciados e ausentes do sprite: {sorted(missing)}")
+            fail(rel, f"ícones referenciados e ausentes do sprite: {sorted(missing)}")
+
+
+def main() -> int:
+    if not PT_PAGES:
+        print("Nenhum HTML encontrado. Rode tools/build.py primeiro.")
+        return 1
+
+    pt_names = {p.name for p in PT_PAGES}
+    en_names = {p.name for p in EN_PAGES}
+    if pt_names != en_names:
+        only_pt = sorted(pt_names - en_names)
+        only_en = sorted(en_names - pt_names)
+        if only_pt:
+            problems.append(f"Páginas sem par em /en/: {only_pt}")
+        if only_en:
+            problems.append(f"Páginas em /en/ sem par na raiz: {only_en}")
+
+    ids_by_rel: dict[str, set[str]] = {}
+    docs: dict[str, tuple[Doc, str]] = {}
+
+    for path in ALL_PAGES:
+        rel = path.relative_to(ROOT).as_posix()
+        docs[rel] = parse(path)
+        ids_by_rel[rel] = docs[rel][0].ids
+
+    check_page_group(PT_PAGES, "pt-BR", ids_by_rel, docs)
+    check_page_group(EN_PAGES, "en", ids_by_rel, docs)
 
     # ------------------------------------------------------ arquivos de apoio
     for required in (
@@ -276,6 +321,7 @@ def main() -> int:
         "robots.txt",
         "manifest.webmanifest",
         "assets/css/site.css",
+        "assets/css/site.min.css",
         "assets/js/site.js",
         "assets/js/consent.js",
         "assets/js/config.js",
@@ -288,17 +334,22 @@ def main() -> int:
             problems.append(f"arquivo obrigatório ausente: {required}")
 
     sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
-    for path in PAGES:
+    for path in ALL_PAGES:
+        rel = path.relative_to(ROOT).as_posix()
+        is_en = rel.startswith("en/")
         if path.name == "404.html":
-            if path.name in sitemap:
-                problems.append("sitemap.xml não deveria listar 404.html")
+            if rel in sitemap:
+                problems.append(f"sitemap.xml não deveria listar {rel}")
             continue
-        slug = "/" if path.name == "index.html" else f"/{path.name}"
+        if is_en:
+            slug = "/en/" if path.name == "index.html" else f"/en/{path.name}"
+        else:
+            slug = "/" if path.name == "index.html" else f"/{path.name}"
         if f"<loc>https://www.ecopolonordeste.com.br{slug}</loc>" not in sitemap:
-            problems.append(f"sitemap.xml sem a página {path.name}")
+            problems.append(f"sitemap.xml sem a página {rel}")
 
     # --------------------------------------------------------------- saída
-    print(f"Páginas verificadas: {len(PAGES)}")
+    print(f"Páginas verificadas: {len(ALL_PAGES)} ({len(PT_PAGES)} PT + {len(EN_PAGES)} EN)")
     if notes:
         print(f"\nObservações ({len(notes)}):")
         for note in notes:

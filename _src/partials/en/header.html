@@ -1,0 +1,62 @@
+    <header class="site-header" data-site-header>
+      <div class="wrap site-header__inner">
+        <a class="brand" href="index.html" aria-label="{{site_name}} — home page">
+          <span class="brand__mark">{{partial:logo_mark}}</span>
+          <span class="brand__word">{{partial:logo_word}}</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-principal"
+          data-nav-toggle
+        >
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span data-nav-toggle-label>Menu</span>
+        </button>
+
+        <nav class="nav" id="nav-principal" aria-label="Main navigation" data-nav>
+          <ul class="nav__list">
+          {{nav_items}}
+          </ul>
+
+          <!-- Official profiles: direct links to verified accounts in a new tab. -->
+          <ul class="header-social" aria-label="Official Eco Polo Nordeste social profiles">
+            <li>
+              <a
+                href="{{site_linkedin}}"
+                target="_blank"
+                rel="noopener noreferrer external"
+              >
+                <svg aria-hidden="true" focusable="false"><use href="#i-linkedin" /></svg>
+                <span class="visually-hidden">Eco Polo Nordeste on LinkedIn</span>
+                <span class="header-social__handle">{{site_linkedin_handle}}</span>
+                <span class="visually-hidden"> (opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{site_instagram}}"
+                target="_blank"
+                rel="noopener noreferrer external"
+              >
+                <svg aria-hidden="true" focusable="false"><use href="#i-instagram" /></svg>
+                <span class="visually-hidden">Eco Polo Nordeste on Instagram</span>
+                <span class="header-social__handle">{{site_instagram_handle}}</span>
+                <span class="visually-hidden"> (opens in a new tab)</span>
+              </a>
+            </li>
+          </ul>
+
+{{partial:lang_switcher}}
+
+          <div class="nav__cta">
+            <a class="btn btn--gold btn--sm" href="contato.html">
+              Contact us
+              <svg class="btn__arrow" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>

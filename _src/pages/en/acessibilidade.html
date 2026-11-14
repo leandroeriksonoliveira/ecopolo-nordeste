@@ -1,0 +1,221 @@
+slug: acessibilidade.html
+nav: conformidade.html
+nav_label: Accessibility
+short_title: Accessibility
+title: Accessibility Statement — Eco Polo Nordeste
+description: Accessibility Statement of Eco Polo Nordeste: declared conformance level under WCAG 2.2 AA and Brazilian Law 13,146/2015, implemented features, known limitations, and barrier-reporting channel.
+og_image_alt: Accessibility Statement — Eco Polo Nordeste
+---
+      <section class="doc-header">
+        <div class="wrap">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb breadcrumb--light">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="conformidade.html">Compliance</a></li>
+              <li><span aria-current="page">Accessibility</span></li>
+            </ol>
+          </nav>
+          <p class="eyebrow">Legal document</p>
+          <h1>Accessibility Statement</h1>
+          <p class="lede">
+            {{site_legal_name}} treats digital accessibility as a baseline
+            requirement, not an add-on. This statement sets out our conformance
+            status, implemented features, known limitations, and how to report a
+            barrier.
+          </p>
+          <ul class="doc-meta">
+            <li><b>Version:</b> {{site_policy_version}}</li>
+            <li><b>Effective since:</b> {{site_policy_date_en}}</li>
+            <li><b>Standard:</b> WCAG 2.2 Level AA</li>
+            <li><b>Legal basis:</b> Brazilian Law 13,146/2015, Art. 63</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section--tight">
+        <div class="wrap doc-layout">
+          <nav class="toc" aria-labelledby="toc-titulo" data-toc>
+            <h2 id="toc-titulo">On this page</h2>
+            <ol>
+              <li><a href="#compromisso">Commitment</a></li>
+              <li><a href="#conformidade">Conformance status</a></li>
+              <li><a href="#recursos">Implemented features</a></li>
+              <li><a href="#limitacoes">Known limitations</a></li>
+              <li><a href="#avaliacao">How we evaluate</a></li>
+              <li><a href="#reporte">Report a barrier</a></li>
+            </ol>
+          </nav>
+
+          <div class="prose">
+            <section class="doc-section" id="compromisso">
+              <h2>1. Commitment</h2>
+              <p>
+                We strive to ensure everyone can use this website, with or
+                without assistive technology, on any device. Accessibility checks
+                for semantics, contrast, focus indicators, and keyboard
+                operation are integrated into our development workflow before
+                release.
+              </p>
+              <p>
+                Art. 63 of Brazilian Law 13,146/2015 (Brazilian Inclusion Law)
+                requires websites maintained by companies with headquarters or
+                commercial representation in Brazil to be accessible to persons
+                with disabilities. This statement is our public commitment.
+              </p>
+            </section>
+
+            <section class="doc-section" id="conformidade">
+              <h2>2. Declared conformance level</h2>
+              <p>
+                <strong>Substantially conformant</strong> with the
+                <em>Web Content Accessibility Guidelines</em> (WCAG) 2.2, Level
+                AA. Exceptions and future third-party verification items are
+                listed transparently in Section 4.
+              </p>
+              <p>
+                This statement covers all Portuguese and English pages on this
+                domain in version {{site_policy_version}}. Content hosted on
+                external platforms — such as LinkedIn and Instagram — is governed
+                by those platforms’ accessibility standards.
+              </p>
+            </section>
+
+            <section class="doc-section" id="recursos">
+              <h2>3. Implemented features</h2>
+              <ul>
+                <li>
+                  <strong>Semantic structure:</strong> landmark regions
+                  (<span class="mono">header</span>, <span class="mono">nav</span>,
+                  <span class="mono">main</span>, <span class="mono">footer</span>),
+                  sequential heading hierarchy without skipped levels, and proper
+                  list markup.
+                </li>
+                <li>
+                  <strong>Skip link:</strong> “Skip to main content” as the
+                  first focusable control on every page.
+                </li>
+                <li>
+                  <strong>Keyboard navigation:</strong> all controls — menus,
+                  carousel tabs, disclosures, forms, language switcher, and
+                  cookie banner — are keyboard-operable in logical focus order.
+                </li>
+                <li>
+                  <strong>Visible focus:</strong> high-contrast 3 px focus
+                  outline across all interactive controls, never suppressed.
+                </li>
+                <li>
+                  <strong>Contrast:</strong> text and UI components verified to
+                  meet at least 4.5:1 (normal text) and 3:1 (large text and
+                  controls), avoiding low-contrast white-on-gold combinations.
+                </li>
+                <li>
+                  <strong>Text alternatives:</strong> informative images and
+                  diagrams carry descriptive <span class="mono">alt</span> text;
+                  decorative visuals are marked accordingly for screen readers.
+                </li>
+                <li>
+                  <strong>Forms:</strong> explicit labels, screen-reader
+                  required cues, field-linked error messages, and
+                  <span class="mono">aria-live</span> status announcements.
+                </li>
+                <li>
+                  <strong>External links:</strong> links opening in a new tab
+                  are announced in their accessible name.
+                </li>
+                <li>
+                  <strong>Motion:</strong> transitions respect
+                  <span class="mono">prefers-reduced-motion</span>.
+                </li>
+                <li>
+                  <strong>Zoom and responsiveness:</strong> relative units
+                  tested up to 200% zoom and from 320 px mobile to ultrawide
+                  viewports without horizontal scrolling.
+                </li>
+                <li>
+                  <strong>Progressive enhancement:</strong> all core content and
+                  navigation remain accessible even with JavaScript disabled.
+                </li>
+                <li>
+                  <strong>Language tags:</strong> declared page language
+                  (<span class="mono">pt-BR</span> / <span class="mono">en</span>)
+                  and <span class="mono">hreflang</span> alternates, plus
+                  expanded <span class="mono">abbr</span> titles.
+                </li>
+              </ul>
+            </section>
+
+            <section class="doc-section" id="limitacoes">
+              <h2>4. Known limitations</h2>
+              <p>
+                We openly disclose remaining limitations and mitigations:
+              </p>
+              <ul>
+                <li>
+                  <strong>Third-party embedded content.</strong> The contact page
+                  map is served by OpenStreetMap, whose internal iframe controls
+                  are outside our direct control. Mitigation: full postal
+                  address and route links remain permanently visible in text,
+                  and the map embed is optional.
+                </li>
+                <li>
+                  <strong>Downloadable documents.</strong> Future PDF downloads
+                  may not initially be fully tagged for screen readers.
+                  Mitigation: accessible formats are provided upon request via
+                  Section 6.
+                </li>
+                <li>
+                  <strong>Independent third-party audit.</strong> Automated and
+                  manual accessibility verification for this release was
+                  performed internally (including Lighthouse audits). An
+                  independent third-party audit with a publishable report is
+                  planned.
+                </li>
+              </ul>
+            </section>
+
+            <section class="doc-section" id="avaliacao">
+              <h2>5. How we evaluate</h2>
+              <p>
+                Verification for this release combined:
+              </p>
+              <ul>
+                <li>automated HTML structure, heading, label, and Lighthouse Accessibility audits;</li>
+                <li>full keyboard-only navigation across pages and forms;</li>
+                <li>color contrast verification across light and brand-green surfaces;</li>
+                <li>responsive layout checks from 320 px to 2560 px and 200% zoom;</li>
+                <li>verification with JavaScript disabled and reduced motion enabled.</li>
+              </ul>
+              <p>
+                Re-evaluation takes place upon every material site update and at
+                least annually.
+              </p>
+            </section>
+
+            <section class="doc-section" id="reporte">
+              <h2>6. Encountered a barrier? Contact us</h2>
+              <p>
+                If any part of this website prevented or hindered your access,
+                please let us know. Include the page URL, what you were trying
+                to do, and any assistive technology used.
+              </p>
+              <p>
+                <strong>Email:</strong>
+                <a href="mailto:{{site_email}}?subject=Website%20Accessibility">{{site_email}}</a>
+                — subject “Website Accessibility”.<br />
+                <strong>Phone:</strong>
+                <a href="tel:{{site_phone_1_tel}}">+55 {{site_phone_1}}</a><br />
+                <strong>Initial response time:</strong> within 10 business days,
+                providing a remediation timeline or accessible alternative.
+              </p>
+              <p>
+                If our response is unsatisfactory, you may escalate to
+                disability-rights authorities, the Public Prosecutor’s Office,
+                or consumer protection bodies.
+              </p>
+              <p>
+                <a class="back-to-top" href="#conteudo">Back to top</a>
+              </p>
+            </section>
+          </div>
+        </div>
+      </section>

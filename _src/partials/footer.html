@@ -37,7 +37,7 @@
                   />
                   <p class="field__error" id="nl-email-erro" data-error-for="email"></p>
                 </div>
-                <button class="btn btn--gold" type="submit" style="margin-top: 1.65rem">
+                <button class="btn btn--gold newsletter__submit" type="submit">
                   Assinar
                 </button>
               </div>
@@ -98,7 +98,6 @@
                   href="{{site_linkedin}}"
                   target="_blank"
                   rel="noopener noreferrer external"
-                  aria-label="LinkedIn da Eco Polo Nordeste, {{site_linkedin_handle}} — abre em nova aba"
                 >
                   <span class="social-card__icon">
                     <svg aria-hidden="true" focusable="false"><use href="#i-linkedin" /></svg>
@@ -109,6 +108,7 @@
                     <span class="social-card__note">Comunicados, marcos do projeto e vagas</span>
                   </span>
                   <svg class="social-card__out" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-external" /></svg>
+                  <span class="visually-hidden"> (abre em nova aba)</span>
                 </a>
               </li>
               <li>
@@ -117,7 +117,6 @@
                   href="{{site_instagram}}"
                   target="_blank"
                   rel="noopener noreferrer external"
-                  aria-label="Instagram da Eco Polo Nordeste, {{site_instagram_handle}} — abre em nova aba"
                 >
                   <span class="social-card__icon">
                     <svg aria-hidden="true" focusable="false"><use href="#i-instagram" /></svg>
@@ -128,6 +127,7 @@
                     <span class="social-card__note">Bastidores, pessoas e agenda institucional</span>
                   </span>
                   <svg class="social-card__out" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-external" /></svg>
+                  <span class="visually-hidden"> (abre em nova aba)</span>
                 </a>
               </li>
             </ul>
@@ -190,14 +190,14 @@
               <li>
                 <a href="{{site_linkedin}}" target="_blank" rel="noopener noreferrer external">
                   LinkedIn · {{site_linkedin_handle}}
-                  <svg width="14" height="14" aria-hidden="true" focusable="false" style="vertical-align:-1px"><use href="#i-external" /></svg>
+                  <svg class="icon-out" width="14" height="14" aria-hidden="true" focusable="false"><use href="#i-external" /></svg>
                   <span class="visually-hidden">(abre em nova aba)</span>
                 </a>
               </li>
               <li>
                 <a href="{{site_instagram}}" target="_blank" rel="noopener noreferrer external">
                   Instagram · {{site_instagram_handle}}
-                  <svg width="14" height="14" aria-hidden="true" focusable="false" style="vertical-align:-1px"><use href="#i-external" /></svg>
+                  <svg class="icon-out" width="14" height="14" aria-hidden="true" focusable="false"><use href="#i-external" /></svg>
                   <span class="visually-hidden">(abre em nova aba)</span>
                 </a>
               </li>
@@ -270,7 +270,7 @@
             <li>
               <button type="button" data-open-consent>Gerenciar cookies</button>
             </li>
-            <li><a href="sitemap.xml">Mapa do site</a></li>
+            <li><a href="{{asset_prefix}}sitemap.xml">Mapa do site</a></li>
           </ul>
         </div>
       </div>

@@ -4,6 +4,7 @@ nav_label: Início
 title: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiperescala
 description: Complexo industrial, tecnológico e sustentável no Nordeste do Brasil: energia renovável off-grid, gestão hídrica em ciclo fechado, data centers de hiperescala e desenvolvimento industrial regional. Unidades em Alagoas, Paraíba e Ceará.
 og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiperescala no Nordeste do Brasil
+head_extra: <link rel="preload" as="image" href="{{asset_prefix}}assets/img/hero-ods-fome.webp" imagesrcset="{{asset_prefix}}assets/img/hero-ods-fome-720.webp 720w, {{asset_prefix}}assets/img/hero-ods-fome-960.webp 960w, {{asset_prefix}}assets/img/hero-ods-fome.webp 1920w" imagesizes="(min-width: 64rem) 56vw, 100vw" fetchpriority="high" />
 ---
       <!-- ================================================== HERO ========= -->
       <section class="hero" aria-labelledby="hero-titulo">
@@ -27,15 +28,15 @@ og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiper
 
             <p class="hero__states">
               <a href="eco-polo.html#unidades">
-                <img src="assets/img/bandeira-alagoas.jpg" width="80" height="80" alt="" />
+                <img src="assets/img/bandeira-alagoas.webp" width="120" height="137" decoding="async" alt="" />
                 Alagoas
               </a>
               <a href="eco-polo.html#unidades">
-                <img src="assets/img/bandeira-paraiba.jpg" width="80" height="80" alt="" />
+                <img src="assets/img/bandeira-paraiba.webp" width="120" height="137" decoding="async" alt="" />
                 Paraíba
               </a>
               <a href="eco-polo.html#unidades">
-                <img src="assets/img/bandeira-ceara.jpg" width="80" height="80" alt="" />
+                <img src="assets/img/bandeira-ceara.webp" width="120" height="137" decoding="async" alt="" />
                 Ceará
               </a>
             </p>
@@ -81,9 +82,13 @@ og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiper
             <div class="hero-carousel__viewport">
               <figure class="hero-slide is-active" data-hero-slide data-caption="ODS 02 — Fome zero" aria-hidden="false">
                 <img
-                  src="assets/img/hero-ods-fome.jpg"
+                  src="assets/img/hero-ods-fome.webp"
+                  srcset="assets/img/hero-ods-fome-720.webp 720w, assets/img/hero-ods-fome-960.webp 960w, assets/img/hero-ods-fome.webp 1920w"
+                  sizes="(min-width: 64rem) 56vw, 100vw"
                   width="1920"
                   height="1080"
+                  fetchpriority="high"
+                  decoding="async"
                   alt="Cartão institucional: criança levando uma colher à boca, com o selo Objetivos de Desenvolvimento Sustentável e o texto ODS 02, sustentabilidade contra a fome"
                 />
                 <figcaption class="hero-slide__id">
@@ -94,48 +99,64 @@ og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiper
 
               <figure class="hero-slide" data-hero-slide data-caption="Ceará" aria-hidden="true">
                 <img
-                  src="assets/img/hero-ceara.jpg"
+                  src="assets/img/hero-ceara.webp"
+                  srcset="assets/img/hero-ceara-720.webp 720w, assets/img/hero-ceara-960.webp 960w, assets/img/hero-ceara.webp 1920w"
+                  sizes="(min-width: 64rem) 56vw, 100vw"
                   width="1920"
                   height="1080"
+                  loading="lazy"
+                  decoding="async"
                   alt="Cartão da unidade do Ceará: texto Ceará Nordeste ao lado da bandeira do estado, com as metas de 3,6 GW, 5,4 milhões de metros quadrados e 246 empresas"
                 />
                 <figcaption class="hero-slide__id">
-                  <img class="hero-slide__flag" src="assets/img/bandeira-ceara.jpg" width="80" height="80" alt="" />
+                  <img class="hero-slide__flag" src="assets/img/bandeira-ceara.webp" width="120" height="137" loading="lazy" decoding="async" alt="" />
                   Ceará
                 </figcaption>
               </figure>
 
               <figure class="hero-slide" data-hero-slide data-caption="Paraíba" aria-hidden="true">
                 <img
-                  src="assets/img/hero-paraiba.jpg"
+                  src="assets/img/hero-paraiba.webp"
+                  srcset="assets/img/hero-paraiba-720.webp 720w, assets/img/hero-paraiba-960.webp 960w, assets/img/hero-paraiba.webp 1920w"
+                  sizes="(min-width: 64rem) 56vw, 100vw"
                   width="1920"
                   height="1080"
+                  loading="lazy"
+                  decoding="async"
                   alt="Cartão da unidade da Paraíba: texto Paraíba Nordeste ao lado da bandeira do estado, com as metas de 3,6 GW, 3,4 milhões de metros quadrados e 208 empresas"
                 />
                 <figcaption class="hero-slide__id">
-                  <img class="hero-slide__flag" src="assets/img/bandeira-paraiba.jpg" width="80" height="80" alt="" />
+                  <img class="hero-slide__flag" src="assets/img/bandeira-paraiba.webp" width="120" height="137" loading="lazy" decoding="async" alt="" />
                   Paraíba
                 </figcaption>
               </figure>
 
               <figure class="hero-slide" data-hero-slide data-caption="Alagoas" aria-hidden="true">
                 <img
-                  src="assets/img/hero-alagoas.jpg"
+                  src="assets/img/hero-alagoas.webp"
+                  srcset="assets/img/hero-alagoas-720.webp 720w, assets/img/hero-alagoas-960.webp 960w, assets/img/hero-alagoas.webp 1920w"
+                  sizes="(min-width: 64rem) 56vw, 100vw"
                   width="1920"
                   height="1080"
+                  loading="lazy"
+                  decoding="async"
                   alt="Cartão da unidade de Alagoas: texto Alagoas Nordeste ao lado da bandeira do estado, com as metas de 2,8 GW, 3,2 milhões de metros quadrados e 178 empresas"
                 />
                 <figcaption class="hero-slide__id">
-                  <img class="hero-slide__flag" src="assets/img/bandeira-alagoas.jpg" width="80" height="80" alt="" />
+                  <img class="hero-slide__flag" src="assets/img/bandeira-alagoas.webp" width="120" height="137" loading="lazy" decoding="async" alt="" />
                   Alagoas
                 </figcaption>
               </figure>
 
               <figure class="hero-slide" data-hero-slide data-caption="Eco Polo Nordeste" aria-hidden="true">
                 <img
-                  src="assets/img/hero-sertao.jpg"
+                  src="assets/img/hero-sertao.webp"
+                  srcset="assets/img/hero-sertao-720.webp 720w, assets/img/hero-sertao-960.webp 960w, assets/img/hero-sertao.webp 1920w"
+                  sizes="(min-width: 64rem) 56vw, 100vw"
                   width="1920"
                   height="1080"
+                  loading="lazy"
+                  decoding="async"
                   alt="Cartão da marca Eco Polo Nordeste ao lado de um cacto da caatinga em preto e branco"
                 />
                 <figcaption class="hero-slide__id">
@@ -188,7 +209,7 @@ og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiper
 
           <div class="grid grid--3">
             <article class="card card--hover" data-reveal="stagger">
-              <img class="icon-pict" src="assets/img/icon-energia-renovavel.jpg" width="712" height="712" alt="Pictograma de energia renovável: um plugue elétrico sobre um caule com folhas" />
+              <img class="icon-pict" src="assets/img/icon-energia-renovavel.webp" width="220" height="220" loading="lazy" decoding="async" alt="Pictograma de energia renovável: um plugue elétrico sobre um caule com folhas" />
               <h3>Segurança energética</h3>
               <p>
                 Suprimento projetado em matriz renovável, off-grid e dedicada, com
@@ -199,7 +220,7 @@ og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiper
             </article>
 
             <article class="card card--hover" data-reveal="stagger">
-              <img class="icon-pict" src="assets/img/icon-agua-ciclo.jpg" width="712" height="712" alt="Pictograma de gestão hídrica: uma gota d’água e uma folha" />
+              <img class="icon-pict" src="assets/img/icon-agua-ciclo.webp" width="220" height="220" loading="lazy" decoding="async" alt="Pictograma de gestão hídrica: uma gota d’água e uma folha" />
               <h3>Resiliência hídrica</h3>
               <p>
                 Água industrial e tecnologias de ciclo fechado, com
@@ -210,7 +231,7 @@ og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiper
             </article>
 
             <article class="card card--hover" data-reveal="stagger">
-              <img class="icon-pict" src="assets/img/logo-lotus.png" width="217" height="171" alt="Emblema da Eco Polo Nordeste, um lótus em traço verde" />
+              <img class="icon-pict" src="assets/img/logo-lotus.webp" width="217" height="171" loading="lazy" decoding="async" alt="Emblema da Eco Polo Nordeste, um lótus em traço verde" />
               <h3>Conformidade e ESG</h3>
               <p>
                 Governança, alinhamento a frameworks internacionais e à Agenda
@@ -264,8 +285,8 @@ og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiper
           </div>
 
           <div data-reveal>
-            <figure class="photo-frame" style="margin-bottom: 1.5rem">
-              <img src="assets/img/esg-caatinga.jpg" width="500" height="500" alt="Mandacaru da caatinga, vegetação nativa do Sertão nordestino" />
+            <figure class="photo-frame mb-3">
+              <img src="assets/img/esg-caatinga.webp" width="500" height="500" loading="lazy" decoding="async" alt="Mandacaru da caatinga, vegetação nativa do Sertão nordestino" />
               <figcaption>A vegetação da caatinga, no Alto Sertão — território de origem do complexo.</figcaption>
             </figure>
             <ol class="timeline">
@@ -325,7 +346,7 @@ og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiper
           <div class="grid grid--2">
             <article class="unit" data-reveal="stagger">
               <div class="media">
-                <img src="assets/img/unidade-alagoas.jpg" width="1400" height="788" alt="Cartão institucional da unidade de Alagoas, com a bandeira do estado" />
+                <img src="assets/img/unidade-alagoas.webp" srcset="assets/img/unidade-alagoas-760.webp 760w, assets/img/unidade-alagoas.webp 1400w" sizes="(min-width: 64rem) 46vw, 94vw" width="1400" height="787" loading="lazy" decoding="async" alt="Cartão institucional da unidade de Alagoas, com a bandeira do estado" />
               </div>
               <header class="unit__head">
                 <div>
@@ -344,7 +365,7 @@ og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiper
 
             <article class="unit" data-reveal="stagger">
               <div class="media">
-                <img src="assets/img/unidade-paraiba.jpg" width="1400" height="788" alt="Cartão institucional da unidade da Paraíba, com a bandeira do estado" />
+                <img src="assets/img/unidade-paraiba.webp" srcset="assets/img/unidade-paraiba-760.webp 760w, assets/img/unidade-paraiba.webp 1400w" sizes="(min-width: 64rem) 46vw, 94vw" width="1400" height="787" loading="lazy" decoding="async" alt="Cartão institucional da unidade da Paraíba, com a bandeira do estado" />
               </div>
               <header class="unit__head">
                 <div>
@@ -363,7 +384,7 @@ og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiper
 
             <article class="unit" data-reveal="stagger">
               <div class="media">
-                <img src="assets/img/unidade-ceara.jpg" width="1400" height="788" alt="Cartão institucional da unidade do Ceará, com a bandeira do estado" />
+                <img src="assets/img/unidade-ceara.webp" srcset="assets/img/unidade-ceara-760.webp 760w, assets/img/unidade-ceara.webp 1400w" sizes="(min-width: 64rem) 46vw, 94vw" width="1400" height="787" loading="lazy" decoding="async" alt="Cartão institucional da unidade do Ceará, com a bandeira do estado" />
               </div>
               <header class="unit__head">
                 <div>
@@ -382,7 +403,7 @@ og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiper
 
             <article class="unit" data-reveal="stagger">
               <div class="media">
-                <img src="assets/img/unidade-etiopia.jpg" width="1400" height="788" alt="Cartão institucional da frente planejada na Etiópia, com a bandeira do país" />
+                <img src="assets/img/unidade-etiopia.webp" srcset="assets/img/unidade-etiopia-760.webp 760w, assets/img/unidade-etiopia.webp 1400w" sizes="(min-width: 64rem) 46vw, 94vw" width="1400" height="787" loading="lazy" decoding="async" alt="Cartão institucional da frente planejada na Etiópia, com a bandeira do país" />
               </div>
               <header class="unit__head">
                 <div>
@@ -428,37 +449,37 @@ og_image_alt: Eco Polo Nordeste — plataforma de desenvolvimento verde de hiper
 
           <div class="grid grid--3">
             <article class="card card--hover" data-reveal="stagger">
-              <div class="media"><img src="assets/img/iniciativa-silos.jpg" width="712" height="712" alt="Silos de grãos ao lado de um campo recém-plantado" /></div>
+              <div class="media"><img src="assets/img/iniciativa-silos.webp" width="712" height="712" loading="lazy" decoding="async" alt="Silos de grãos ao lado de um campo recém-plantado" /></div>
               <span class="card__num">01</span>
               <h3>Silos do Sertão</h3>
               <p>Armazenagem e logística de grãos para dar escala à produção agrícola regional.</p>
             </article>
             <article class="card card--hover" data-reveal="stagger">
-              <div class="media"><img src="assets/img/iniciativa-nordeste-conectado.jpg" width="712" height="712" alt="Caminhão de carga sobre o recorte do mapa do Brasil" /></div>
+              <div class="media"><img src="assets/img/iniciativa-nordeste-conectado.webp" width="712" height="712" loading="lazy" decoding="async" alt="Caminhão de carga sobre o recorte do mapa do Brasil" /></div>
               <span class="card__num">02</span>
               <h3>Nordeste Conectado</h3>
               <p>Mobilidade elétrica aplicada ao transporte de carga, incluindo a montagem de caminhões elétricos.</p>
             </article>
             <article class="card card--hover" data-reveal="stagger">
-              <div class="media"><img src="assets/img/iniciativa-halal.jpg" width="712" height="712" alt="Frangos de corte em granja, imagem usada no complexo de proteína halal" /></div>
+              <div class="media"><img src="assets/img/iniciativa-halal.webp" width="712" height="712" loading="lazy" decoding="async" alt="Frangos de corte em granja, imagem usada no complexo de proteína halal" /></div>
               <span class="card__num">03</span>
               <h3>Tayyib Halal Complex</h3>
               <p>Complexo de proteína animal com certificação voltada ao mercado halal.</p>
             </article>
             <article class="card card--hover" data-reveal="stagger">
-              <div class="media"><img src="assets/img/iniciativa-cavacos.jpg" width="712" height="712" alt="Mão segurando cavacos de madeira usados como biomassa" /></div>
+              <div class="media"><img src="assets/img/iniciativa-cavacos.webp" width="712" height="712" loading="lazy" decoding="async" alt="Mão segurando cavacos de madeira usados como biomassa" /></div>
               <span class="card__num">04</span>
               <h3>Oficina de Cavacos</h3>
               <p>Processamento de biomassa para alimentar a matriz térmica e energética do complexo.</p>
             </article>
             <article class="card card--hover" data-reveal="stagger">
-              <div class="media"><img src="assets/img/iniciativa-bioterra.jpg" width="712" height="712" alt="Vista aérea de pastagem com gado junto a uma linha de árvores" /></div>
+              <div class="media"><img src="assets/img/iniciativa-bioterra.webp" width="712" height="712" loading="lazy" decoding="async" alt="Vista aérea de pastagem com gado junto a uma linha de árvores" /></div>
               <span class="card__num">05</span>
               <h3>Bioterra ILPF &amp; Agro</h3>
               <p>Integração lavoura-pecuária-floresta e recuperação de áreas degradadas como base da economia circular.</p>
             </article>
             <article class="card card--hover" data-reveal="stagger">
-              <div class="media"><img src="assets/img/iniciativa-ecomelt.jpg" width="712" height="712" alt="Filme flexível em ensaio de laboratório, com garras e um LED aceso" /></div>
+              <div class="media"><img src="assets/img/iniciativa-ecomelt.webp" width="712" height="712" loading="lazy" decoding="async" alt="Filme flexível em ensaio de laboratório, com garras e um LED aceso" /></div>
               <span class="card__num">06</span>
               <h3>EcoMelt P&amp;D</h3>
               <p>Pesquisa e desenvolvimento aplicados a materiais e processos industriais de baixo impacto.</p>

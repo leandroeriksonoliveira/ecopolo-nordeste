@@ -1,0 +1,277 @@
+    <footer class="site-footer theme-dark" id="rodape">
+      <div class="wrap">
+        <!-- Newsletter: personal data collection with just-in-time notice and opt-in consent -->
+        <div class="footer-top">
+          <section class="newsletter" aria-labelledby="newsletter-titulo">
+            <p class="eyebrow">Institutional bulletin</p>
+            <h2 class="newsletter__title" id="newsletter-titulo">
+              Follow project milestones
+            </h2>
+            <p class="newsletter__sub">
+              Biweekly bulletin covering complex milestones, publications, and
+              official announcements from Eco Polo Nordeste. Data is never
+              shared with third parties for marketing.
+            </p>
+
+            <form
+              class="form"
+              data-form="newsletter"
+              data-form-name="Institutional newsletter"
+              novalidate
+            >
+              <div class="newsletter__inline">
+                <div class="field">
+                  <label for="nl-email">
+                    Email <span class="field__req" aria-hidden="true">*</span>
+                    <span class="visually-hidden">(required)</span>
+                  </label>
+                  <input
+                    class="input"
+                    type="email"
+                    id="nl-email"
+                    name="email"
+                    autocomplete="email"
+                    inputmode="email"
+                    required
+                    aria-describedby="nl-email-erro"
+                  />
+                  <p class="field__error" id="nl-email-erro" data-error-for="email"></p>
+                </div>
+                <button class="btn btn--gold newsletter__submit" type="submit">
+                  Subscribe
+                </button>
+              </div>
+
+              <label class="check">
+                <input type="checkbox" name="consent" value="sim" required data-consent-field />
+                <span class="check__text">
+                  I authorize the use of my email address to receive the Eco Polo
+                  Nordeste institutional bulletin, in accordance with the
+                  <a href="privacidade.html">Privacy Policy</a> (version
+                  {{site_policy_version}}). I may unsubscribe at any time.
+                  <span class="field__req" aria-hidden="true">*</span>
+                </span>
+              </label>
+              <p class="field__error" data-error-for="consent"></p>
+
+              <details class="privacy-notice">
+                <summary>Privacy notice for this collection</summary>
+                <div class="privacy-notice__body">
+                  <dl>
+                    <dt>Purpose</dt>
+                    <dd>Delivery of the biweekly institutional bulletin.</dd>
+                    <dt>Data collected</dt>
+                    <dd>Email address and consent log (date, time, and notice version).</dd>
+                    <dt>Legal basis</dt>
+                    <dd>Data subject consent — Art. 7, I, of Brazilian Law 13,709/2018 (LGPD).</dd>
+                    <dt>Retention period</dt>
+                    <dd>While the subscription remains active and for up to 6 months after opt-out to evidence unsubscription.</dd>
+                    <dt>Sharing</dt>
+                    <dd>Contracted email delivery processor acting under controller instructions. No sale or transfer to third parties.</dd>
+                    <dt>Controller and data subject channel</dt>
+                    <dd>
+                      {{site_legal_name}} — CNPJ {{site_cnpj}}.
+                      <a href="mailto:{{site_email_legal}}">{{site_email_legal}}</a>
+                    </dd>
+                  </dl>
+                  <p><a href="privacidade.html">Full Privacy Policy</a> · <a href="conformidade.html#direitos">Exercise data subject rights</a></p>
+                </div>
+              </details>
+
+              <p class="form__status" role="status" aria-live="polite" data-form-status></p>
+            </form>
+          </section>
+
+          <!-- Official profiles, human-readable, alongside legal identity -->
+          <section class="footer-social" aria-labelledby="canais-titulo">
+            <p class="eyebrow">Official channels</p>
+            <h2 class="newsletter__title" id="canais-titulo">Where Eco Polo Nordeste publishes</h2>
+            <p class="newsletter__sub">
+              These are the company’s only official social media accounts. Any
+              other profile using the brand is not operated by Eco Polo Nordeste.
+            </p>
+
+            <ul class="social-cards">
+              <li>
+                <a
+                  class="social-card"
+                  href="{{site_linkedin}}"
+                  target="_blank"
+                  rel="noopener noreferrer external"
+                >
+                  <span class="social-card__icon">
+                    <svg aria-hidden="true" focusable="false"><use href="#i-linkedin" /></svg>
+                  </span>
+                  <span class="social-card__text">
+                    <strong>LinkedIn</strong>
+                    <span class="social-card__handle">{{site_linkedin_handle}}</span>
+                    <span class="social-card__note">Announcements, project milestones, and careers</span>
+                  </span>
+                  <svg class="social-card__out" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-external" /></svg>
+                  <span class="visually-hidden"> (opens in a new tab)</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="social-card"
+                  href="{{site_instagram}}"
+                  target="_blank"
+                  rel="noopener noreferrer external"
+                >
+                  <span class="social-card__icon">
+                    <svg aria-hidden="true" focusable="false"><use href="#i-instagram" /></svg>
+                  </span>
+                  <span class="social-card__text">
+                    <strong>Instagram</strong>
+                    <span class="social-card__handle">{{site_instagram_handle}}</span>
+                    <span class="social-card__note">Behind the scenes, people, and institutional agenda</span>
+                  </span>
+                  <svg class="social-card__out" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-external" /></svg>
+                  <span class="visually-hidden"> (opens in a new tab)</span>
+                </a>
+              </li>
+            </ul>
+            <p class="small mute mt-2">
+              Full channel matrix, detailing each channel’s purpose, at
+              <a href="conformidade.html#canais">Compliance → official channels</a>.
+            </p>
+          </section>
+        </div>
+
+        <div class="footer-cols">
+          <!-- Full legal identification -->
+          <div class="footer-col">
+            <h3>Legal identification</h3>
+            <div class="legal-identity">
+              <dl>
+                <div class="row"><dt>Legal name</dt><dd>{{site_legal_name}}</dd></div>
+                <div class="row"><dt>Trade name</dt><dd>{{site_trade_name}}</dd></div>
+                <div class="row"><dt>CNPJ</dt><dd class="mono">{{site_cnpj}}</dd></div>
+                <div class="row"><dt>Incorporated</dt><dd>{{site_founded_label_en}} · {{site_size_label_en}}</dd></div>
+              </dl>
+            </div>
+            <address class="mt-2">
+              <strong>Headquarters &amp; operations base</strong>
+              {{site_hq_street}}<br />
+              {{site_hq_district}}, {{site_hq_city}} - {{site_hq_state}}<br />
+              ZIP {{site_hq_zip}} · Brazil
+            </address>
+            <address>
+              <strong>Commercial office</strong>
+              {{site_com_name}}<br />
+              {{site_com_street}}<br />
+              {{site_com_district}}, {{site_com_city}} - {{site_com_state}}
+            </address>
+          </div>
+
+          <div class="footer-col">
+            <h3>Contact</h3>
+            <ul>
+              <li>
+                <a href="tel:{{site_phone_1_tel}}">+55 {{site_phone_1}}</a><br />
+                <span class="small mute">Institutional inquiries</span>
+              </li>
+              <li>
+                <a href="tel:{{site_phone_2_tel}}">+55 {{site_phone_2}}</a><br />
+                <span class="small mute">Investors and partners</span>
+              </li>
+              <li>
+                <a href="mailto:{{site_email}}">{{site_email}}</a><br />
+                <span class="small mute">General and commercial matters</span>
+              </li>
+              <li>
+                <a href="mailto:{{site_email_legal}}">{{site_email_legal}}</a><br />
+                <span class="small mute">Legal, LGPD, and data subject rights</span>
+              </li>
+            </ul>
+
+            <h3 class="mt-3">Official profiles</h3>
+            <ul>
+              <li>
+                <a href="{{site_linkedin}}" target="_blank" rel="noopener noreferrer external">
+                  LinkedIn · {{site_linkedin_handle}}
+                  <svg class="icon-out" width="14" height="14" aria-hidden="true" focusable="false"><use href="#i-external" /></svg>
+                  <span class="visually-hidden">(opens in a new tab)</span>
+                </a>
+              </li>
+              <li>
+                <a href="{{site_instagram}}" target="_blank" rel="noopener noreferrer external">
+                  Instagram · {{site_instagram_handle}}
+                  <svg class="icon-out" width="14" height="14" aria-hidden="true" focusable="false"><use href="#i-external" /></svg>
+                  <span class="visually-hidden">(opens in a new tab)</span>
+                </a>
+              </li>
+            </ul>
+
+            <ul class="social" aria-label="Official social media accounts">
+              <li>
+                <a
+                  href="{{site_linkedin}}"
+                  target="_blank"
+                  rel="noopener noreferrer external"
+                  aria-label="Eco Polo Nordeste on LinkedIn — opens in a new tab"
+                >
+                  <svg aria-hidden="true" focusable="false"><use href="#i-linkedin" /></svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="{{site_instagram}}"
+                  target="_blank"
+                  rel="noopener noreferrer external"
+                  aria-label="Eco Polo Nordeste on Instagram — opens in a new tab"
+                >
+                  <svg aria-hidden="true" focusable="false"><use href="#i-instagram" /></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Explore</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="quem-somos.html">About us</a></li>
+              <li><a href="eco-polo.html">The complex</a></li>
+              <li><a href="esg.html">ESG &amp; SDGs</a></li>
+              <li><a href="investidores.html">Investors &amp; partners</a></li>
+              <li><a href="trabalhe-conosco.html">Careers</a></li>
+              <li><a href="contato.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Governance &amp; compliance</h3>
+            <ul>
+              <li><a href="conformidade.html">Compliance hub</a></li>
+              <li><a href="privacidade.html">Privacy Policy</a></li>
+              <li><a href="termos.html">Terms of Use</a></li>
+              <li><a href="cookies.html">Cookie Policy</a></li>
+              <li><a href="acessibilidade.html">Accessibility Statement</a></li>
+              <li><a href="conformidade.html#direitos">Data subject rights</a></li>
+              <li><a href="conformidade.html#encarregado">Data Protection Officer (DPO)</a></li>
+            </ul>
+            <p class="small mute mt-2">
+              Documents version {{site_policy_version}}, effective since
+              {{site_policy_date_en}}.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="mb-0">
+            © <span data-current-year>{{year}}</span> {{site_legal_name}} ·
+            CNPJ {{site_cnpj}} · All rights reserved.
+          </p>
+          <ul>
+            <li><a href="privacidade.html">Privacy</a></li>
+            <li><a href="termos.html">Terms</a></li>
+            <li><a href="cookies.html">Cookies</a></li>
+            <li>
+              <button type="button" data-open-consent>Manage cookies</button>
+            </li>
+            <li><a href="{{asset_prefix}}sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>

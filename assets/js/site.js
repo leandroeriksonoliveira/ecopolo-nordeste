@@ -9,6 +9,65 @@
   "use strict";
 
   var CONFIG = window.EPN_CONFIG || {};
+  var IS_EN = (document.documentElement.lang || "pt-BR").toLowerCase().indexOf("en") === 0;
+  var I18N = IS_EN
+    ? {
+        navOpen: "Close",
+        navClosed: "Menu",
+        slidePrefix: "Slide ",
+        of: " of ",
+        pauseLabel: "Pause the carousel",
+        playLabel: "Play the carousel",
+        pauseText: "Pause",
+        playText: "Play",
+        required: "This field is required.",
+        email: "Enter a valid email address, such as name@company.com.",
+        tel: "Enter a valid phone number, such as +55 (82) 99999-0000.",
+        consent: "Consent is required to proceed.",
+        file: "Attach a PDF, DOC, or DOCX file up to 2 MB.",
+        yes: "yes",
+        subjectPrefix: "[Website] ",
+        defaultSubject: "Message",
+        reviewFields: "Please review the highlighted fields and try again.",
+        mailtoInfo:
+          "Automatic submission is not configured in this environment yet. " +
+          "We opened your email client with the filled fields so your message is not lost.",
+        sending: "Sending…",
+        sentOk:
+          "Received. Eco Polo Nordeste responds within 5 business days to the " +
+          "provided email. Data subject requests have a 15-day response deadline.",
+        sendError:
+          "Could not send right now. Please try again or write to ",
+      }
+    : {
+        navOpen: "Fechar",
+        navClosed: "Menu",
+        slidePrefix: "Slide ",
+        of: " de ",
+        pauseLabel: "Pausar o carrossel",
+        playLabel: "Reproduzir o carrossel",
+        pauseText: "Pausar",
+        playText: "Reproduzir",
+        required: "Este campo é obrigatório.",
+        email: "Informe um e-mail válido, como nome@empresa.com.br.",
+        tel: "Informe um telefone com DDD, como (82) 99999-0000.",
+        consent: "É necessário autorizar o tratamento para prosseguir.",
+        file: "Anexe um arquivo PDF, DOC ou DOCX de até 2 MB.",
+        yes: "sim",
+        subjectPrefix: "[Site] ",
+        defaultSubject: "Mensagem",
+        reviewFields: "Revise os campos destacados e envie novamente.",
+        mailtoInfo:
+          "O envio automático ainda não está configurado neste ambiente. " +
+          "Abrimos seu programa de e-mail com os dados preenchidos para que " +
+          "a mensagem não se perca.",
+        sending: "Enviando…",
+        sentOk:
+          "Recebido. A Eco Polo Nordeste responde em até 5 dias úteis no " +
+          "e-mail informado. Requisições de titular de dados têm prazo de 15 dias.",
+        sendError:
+          "Não foi possível enviar agora. Tente novamente ou escreva para ",
+      };
   var reduceMotion =
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -31,7 +90,7 @@
     var setNav = function (open) {
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
       nav.setAttribute("data-open", open ? "true" : "false");
-      if (navToggleLabel) navToggleLabel.textContent = open ? "Fechar" : "Menu";
+      if (navToggleLabel) navToggleLabel.textContent = open ? I18N.navOpen : I18N.navClosed;
       document.documentElement.style.overflow = open ? "hidden" : "";
     };
 
@@ -108,7 +167,7 @@
     var touchStartX = null;
 
     function captionOf(i) {
-      return slides[i].getAttribute("data-caption") || "Slide " + (i + 1);
+      return slides[i].getAttribute("data-caption") || I18N.slidePrefix + (i + 1);
     }
 
     function show(i) {
@@ -123,7 +182,7 @@
         dot.setAttribute("aria-current", on ? "true" : "false");
       });
       if (status) {
-        status.textContent = captionOf(index) + ", " + (index + 1) + " de " + slides.length;
+        status.textContent = captionOf(index) + ", " + (index + 1) + I18N.of + slides.length;
       }
     }
 
@@ -146,9 +205,9 @@
       playing = on && !reduceMotion;
       if (pauseBtn) {
         pauseBtn.setAttribute("aria-pressed", playing ? "false" : "true");
-        pauseBtn.setAttribute("aria-label", playing ? "Pausar o carrossel" : "Reproduzir o carrossel");
+        pauseBtn.setAttribute("aria-label", playing ? I18N.pauseLabel : I18N.playLabel);
       }
-      if (pauseLabel) pauseLabel.textContent = playing ? "Pausar" : "Reproduzir";
+      if (pauseLabel) pauseLabel.textContent = playing ? I18N.pauseText : I18N.playText;
       if (pauseIcon) pauseIcon.setAttribute("href", playing ? "#i-pause" : "#i-play");
       if (playing) start();
       else stop();
@@ -283,11 +342,11 @@
 
   /* ----------------------------------------------------------- Formulários */
   var MESSAGES = {
-    required: "Este campo é obrigatório.",
-    email: "Informe um e-mail válido, como nome@empresa.com.br.",
-    tel: "Informe um telefone com DDD, como (82) 99999-0000.",
-    consent: "É necessário autorizar o tratamento para prosseguir.",
-    file: "Anexe um arquivo PDF, DOC ou DOCX de até 2 MB.",
+    required: I18N.required,
+    email: I18N.email,
+    tel: I18N.tel,
+    consent: I18N.consent,
+    file: I18N.file,
   };
 
   var MAX_FILE_BYTES = 2 * 1024 * 1024;
@@ -364,7 +423,7 @@
   function mailtoFallback(form) {
     var to =
       form.getAttribute("data-form-mailto") || CONFIG.contactEmail || "contato@ecopolonordeste.com.br";
-    var subject = "[Site] " + (form.getAttribute("data-form-name") || "Mensagem");
+    var subject = I18N.subjectPrefix + (form.getAttribute("data-form-name") || I18N.defaultSubject);
     var lines = [];
     each(controlsOf(form), function (control) {
       if (control.type === "file") return;
@@ -372,7 +431,7 @@
       var label = form.querySelector('label[for="' + control.id + '"]');
       var name = label ? label.textContent.replace(/\s*\*\s*/g, "").trim() : control.name;
       if (control.type === "radio" && !control.checked) return;
-      lines.push(name + ": " + (control.type === "checkbox" ? "sim" : control.value));
+      lines.push(name + ": " + (control.type === "checkbox" ? I18N.yes : control.value));
     });
     return (
       "mailto:" +
@@ -403,7 +462,7 @@
       });
 
       if (firstInvalid) {
-        showStatus(form, "error", "Revise os campos destacados e envie novamente.");
+        showStatus(form, "error", I18N.reviewFields);
         firstInvalid.focus();
         return;
       }
@@ -415,13 +474,7 @@
       };
 
       if (!CONFIG.formEndpoint) {
-        showStatus(
-          form,
-          "info",
-          "O envio automático ainda não está configurado neste ambiente. " +
-            "Abrimos seu programa de e-mail com os dados preenchidos para que " +
-            "a mensagem não se perca."
-        );
+        showStatus(form, "info", I18N.mailtoInfo);
         window.location.href = mailtoFallback(form);
         return;
       }
@@ -435,25 +488,19 @@
 
       var submitBtn = form.querySelector("button[type=submit]");
       if (submitBtn) submitBtn.disabled = true;
-      showStatus(form, "info", "Enviando…");
+      showStatus(form, "info", I18N.sending);
 
       fetch(CONFIG.formEndpoint, { method: "POST", body: payload })
         .then(function (response) {
           if (!response.ok) throw new Error("HTTP " + response.status);
           form.reset();
-          showStatus(
-            form,
-            "ok",
-            "Recebido. A Eco Polo Nordeste responde em até 5 dias úteis no " +
-              "e-mail informado. Requisições de titular de dados têm prazo de 15 dias."
-          );
+          showStatus(form, "ok", I18N.sentOk);
         })
         .catch(function () {
           showStatus(
             form,
             "error",
-            "Não foi possível enviar agora. Tente novamente ou escreva para " +
-              (CONFIG.contactEmail || "contato@ecopolonordeste.com.br") + "."
+            I18N.sendError + (CONFIG.contactEmail || "contato@ecopolonordeste.com.br") + "."
           );
         })
         .finally(function () {

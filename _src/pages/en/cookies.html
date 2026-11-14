@@ -1,0 +1,282 @@
+slug: cookies.html
+nav: conformidade.html
+nav_label: Cookie Policy
+short_title: Cookie Policy
+title: Cookie Policy — Eco Polo Nordeste
+description: Cookie Policy of Eco Polo Nordeste: inventory by category and purpose, true opt-in preference panel, consent receipt viewer, and one-click revocation.
+og_image_alt: Cookie Policy of Eco Polo Nordeste
+---
+      <section class="doc-header">
+        <div class="wrap">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb breadcrumb--light">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="conformidade.html">Compliance</a></li>
+              <li><span aria-current="page">Cookie Policy</span></li>
+            </ol>
+          </nav>
+          <p class="eyebrow">Legal document</p>
+          <h1>Cookie Policy</h1>
+          <p class="lede">
+            On this website, no non-essential cookie is stored prior to your
+            decision. This page explains what we use, why, and for how long —
+            and displays the consent receipt stored in your browser.
+          </p>
+          <ul class="doc-meta">
+            <li><b>Version:</b> {{site_policy_version}}</li>
+            <li><b>Effective since:</b> {{site_policy_date_en}}</li>
+            <li><b>Controller:</b> {{site_legal_name}}</li>
+            <li><b>CNPJ:</b> {{site_cnpj}}</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Preferences & receipt -->
+      <section class="section section--tight section--alt">
+        <div class="wrap">
+          <div class="split">
+            <div data-reveal>
+              <h2>Your preferences</h2>
+              <p class="prose">
+                You may update or withdraw your consent at any time without
+                impacting core site navigation. Withdrawing consent is just as
+                easy as granting it: a single click.
+              </p>
+              <div class="cluster mt-2">
+                <button class="btn btn--gold" type="button" data-open-consent>
+                  Manage cookies
+                </button>
+                <button class="btn btn--ghost" type="button" data-consent-revoke>
+                  Reject all non-essential
+                </button>
+              </div>
+            </div>
+
+            <div data-reveal>
+              <h2>Your consent receipt</h2>
+              <p class="prose small mute">
+                Record stored in your browser and, once configured, on the
+                company’s server so consent can be evidenced under Art. 8, §1,
+                of the LGPD.
+              </p>
+              <p class="consent-receipt mt-2" data-consent-receipt role="status" aria-live="polite">
+                Loading consent record from this browser…
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight">
+        <div class="wrap doc-layout">
+          <nav class="toc" aria-labelledby="toc-titulo" data-toc>
+            <h2 id="toc-titulo">On this page</h2>
+            <ol>
+              <li><a href="#oquesao">What cookies are</a></li>
+              <li><a href="#categorias">Categories we use</a></li>
+              <li><a href="#inventario">Cookie inventory</a></li>
+              <li><a href="#incorporado">Embedded third-party content</a></li>
+              <li><a href="#registro">How we log consent</a></li>
+              <li><a href="#navegador">Browser controls</a></li>
+              <li><a href="#alteracoes">Changes</a></li>
+            </ol>
+          </nav>
+
+          <div class="prose">
+            <section class="doc-section" id="oquesao">
+              <h2>1. What cookies are</h2>
+              <p>
+                Cookies are small files stored on your device when you visit a
+                website. Equivalent storage technologies — such as
+                <span class="mono">localStorage</span>,
+                <span class="mono">sessionStorage</span>, and pixels — are
+                governed identically under this policy.
+              </p>
+              <p>
+                <strong>First-party cookies</strong> are set by this domain.
+                <strong>Third-party cookies</strong> are set by external domains,
+                typically via embedded content. On this site, third-party
+                content loads only upon your explicit authorization.
+              </p>
+            </section>
+
+            <section class="doc-section" id="categorias">
+              <h2>2. Categories we use</h2>
+              <h3>Strictly necessary — always active</h3>
+              <p>
+                Essential for core site operation: security, integrity, and
+                remembering your cookie decision. Because the site cannot
+                function properly without them, they do not require opt-in
+                consent. Legal basis: legitimate interest to deliver the
+                requested service (Art. 7, IX, of the LGPD).
+              </p>
+              <h3>Preferences — optional</h3>
+              <p>
+                Remember display choices such as language and collapsed UI
+                sections. Legal basis: consent (Art. 7, I).
+              </p>
+              <h3>Analytics — optional</h3>
+              <p>
+                Aggregated audience measurement with data minimization to
+                understand which pages are useful. Legal basis: consent (Art. 7,
+                I).
+              </p>
+              <h3>Marketing — optional</h3>
+              <p>
+                Campaign measurement and embedded third-party content such as
+                interactive maps and videos. Legal basis: consent (Art. 7, I).
+              </p>
+            </section>
+
+            <section class="doc-section" id="inventario">
+              <h2>3. Cookie inventory</h2>
+              <p>
+                Complete inventory for version {{site_policy_version}} of this
+                website. No optional item is activated before your consent.
+              </p>
+              <div class="table-scroll full-measure">
+                <table class="data">
+                  <caption>
+                    Cookies and local storage in use, by category.
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Origin</th>
+                      <th scope="col">Purpose</th>
+                      <th scope="col">Duration</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><span class="mono">epn.consent.v1</span></th>
+                      <td><span class="pill pill--ok">Necessary</span></td>
+                      <td>First party · localStorage</td>
+                      <td>
+                        Stores your cookie choice with unique ID, timestamp,
+                        accepted notice version, and authorized categories so we
+                        do not prompt again unnecessarily and can evidence
+                        consent.
+                      </td>
+                      <td>Until revoked or cleared in browser settings</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Hosting provider cookies</th>
+                      <td><span class="pill pill--ok">Necessary</span></td>
+                      <td>First party</td>
+                      <td>
+                        Security, abuse mitigation, and load balancing set by
+                        hosting infrastructure. Never used for advertising.
+                      </td>
+                      <td>Session or provider-defined duration</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Display preferences</th>
+                      <td><span class="pill pill--wait">Preferences</span></td>
+                      <td>First party</td>
+                      <td>
+                        Interface state memory. No item in this category is
+                        active in the current release.
+                      </td>
+                      <td>Up to 12 months</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Audience analytics</th>
+                      <td><span class="pill pill--wait">Analytics</span></td>
+                      <td>To be defined at go-live</td>
+                      <td>
+                        No analytics script is installed in the current release.
+                        If enabled later, vendor, name, purpose, and lifespan
+                        will be listed here prior to activation.
+                      </td>
+                      <td>To be declared</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">OpenStreetMap</th>
+                      <td><span class="pill pill--wait">Marketing</span></td>
+                      <td>Third party · openstreetmap.org</td>
+                      <td>
+                        Interactive map embed on the contact page. Loads only if
+                        you authorize it; otherwise plain-text address and route
+                        links are displayed.
+                      </td>
+                      <td>Defined by map provider</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                We do not use behavioral advertising cookies, retargeting tags,
+                or data-broker trackers.
+              </p>
+            </section>
+
+            <section class="doc-section" id="incorporado">
+              <h2>4. Embedded third-party content</h2>
+              <p>
+                The interactive map on the contact page is the sole third-party
+                embed on the site. It is gated behind a consent placeholder so
+                zero requests reach the map provider prior to your explicit
+                action.
+              </p>
+              <p>
+                Links to our LinkedIn and Instagram profiles are standard
+                hyperlinks: they load no third-party scripts and set no cookies
+                while you remain on this website.
+              </p>
+            </section>
+
+            <section class="doc-section" id="registro">
+              <h2>5. How we log your consent</h2>
+              <p>
+                Each decision creates a record with: unique identifier, ISO 8601
+                timestamp, consent notice version, decision method (accept-all,
+                reject-non-essential, or custom), authorized categories, page
+                path, and browser language.
+              </p>
+              <p>
+                The receipt is kept in your browser and viewable above. Once a
+                server consent endpoint is configured, a copy is sent to the
+                company’s log for audit proof. The log contains no name, email,
+                or direct personal identifier.
+              </p>
+              <p>
+                If the consent notice version changes, fresh consent will be
+                requested.
+              </p>
+            </section>
+
+            <section class="doc-section" id="navegador">
+              <h2>6. Browser controls</h2>
+              <p>
+                In addition to this site’s preference panel, you can block or
+                clear cookies in your browser settings:
+              </p>
+              <ul>
+                <li><strong>Chrome:</strong> Settings → Privacy and security → Cookies and other site data.</li>
+                <li><strong>Safari:</strong> Settings → Privacy → Manage Website Data.</li>
+                <li><strong>Firefox:</strong> Settings → Privacy &amp; Security → Cookies and Site Data.</li>
+                <li><strong>Edge:</strong> Settings → Cookies and site permissions.</li>
+              </ul>
+              <p>
+                In private browsing mode, choices apply only to that session.
+              </p>
+            </section>
+
+            <section class="doc-section" id="alteracoes">
+              <h2>7. Changes to this policy</h2>
+              <p>
+                Updates to this inventory or categories are published here and
+                logged at
+                <a href="conformidade.html#historico">Compliance → version history</a>.
+                Questions:
+                <a href="mailto:{{site_email_legal}}">{{site_email_legal}}</a>.
+              </p>
+              <p>
+                <a class="back-to-top" href="#conteudo">Back to top</a>
+              </p>
+            </section>
+          </div>
+        </div>
+      </section>
