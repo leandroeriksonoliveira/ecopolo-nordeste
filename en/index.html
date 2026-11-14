@@ -43,7 +43,7 @@
     <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
     <link rel="manifest" href="../manifest.webmanifest" />
 
-    <link rel="stylesheet" href="../assets/css/site.min.css?v=40bfa7a3dc" />
+    <link rel="stylesheet" href="../assets/css/site.min.css?v=532f262c8b" />
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -482,8 +482,22 @@
         </div>
       </section>
 
+      <nav class="page-rail" aria-label="On this page" data-toc data-page-rail>
+        <div class="page-rail__scroller">
+          <a href="#por-que">Why we exist</a>
+          <a href="#territorio">Territory</a>
+          <a href="#origem">Origin</a>
+          <a href="#unidades">Units</a>
+          <a href="#iniciativas">Initiatives</a>
+          <a href="#ods">Agenda 2030</a>
+          <a href="#atualizacoes">Updates</a>
+          <a href="#publicos">Audiences</a>
+          <a href="#conformidade-resumo">Compliance</a>
+        </div>
+      </nav>
+
       <!-- ============================================ VALUE PROP ========= -->
-      <section class="why-exist" aria-labelledby="valor-titulo">
+      <section class="why-exist" id="por-que" aria-labelledby="valor-titulo">
         <div class="wrap why-exist__stage">
           <div class="why-exist__copy" data-reveal>
             <p class="eyebrow">Why we exist</p>
@@ -548,7 +562,7 @@
       </section>
 
       <!-- =========================================== STORY ALAGOAS BLEED -->
-      <section class="section section--flush" aria-labelledby="territorio-titulo">
+      <section class="section section--flush" id="territorio" aria-labelledby="territorio-titulo">
         <div class="story-band" data-reveal>
           <figure class="story-band__media">
             <img
@@ -580,53 +594,25 @@
       </section>
 
       <!-- ================================================ DELMIRO GOUVEIA -->
-      <section class="section section--dark" aria-labelledby="delmiro-titulo">
-        <div class="wrap split split--wide-left">
-          <div data-reveal>
+      <section class="section section--dark" id="origem" aria-labelledby="delmiro-titulo">
+        <div class="wrap">
+          <div class="section-head section-head--wide" data-reveal>
             <p class="eyebrow">Where the project begins</p>
             <h2 id="delmiro-titulo">Delmiro Gouveia, in the Alto Sertão of Alagoas</h2>
-            <div class="prose">
-              <p>
-                The official launch of Eco Polo Nordeste took place on
-                <strong>September 25, 2026</strong>, in Delmiro Gouveia.
-                Choosing this municipality is not symbolic: it is a deliberate
-                strategy to bring industry and technology inland, deploying
-                leading-edge infrastructure where it drives the highest economic
-                transformation per real invested.
-              </p>
-              <p>
-                The model enables tenant companies to share infrastructure,
-                power, technology, expertise, and sustainable solutions —
-                strengthening productive chains rather than merely leasing plots
-                on a shared site.
-              </p>
-              <p>
-                Deployment is phased by quadrant, aligned with permitting,
-                earthworks, and contracting progress. Confirmed milestones are
-                published through the company’s official channels.
-              </p>
-            </div>
-
-            <div class="cluster mt-3">
-              <a class="btn btn--gold" href="eco-polo.html">
-                Complex structure
-                <svg class="btn__arrow" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg>
-              </a>
-              <a class="link-arrow" href="https://www.linkedin.com/company/ecopolonordeste/posts/" target="_blank" rel="noopener noreferrer external">
-                Launch coverage on LinkedIn
-                <svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-external" /></svg>
-                <span class="visually-hidden">(opens in a new tab)</span>
-              </a>
-            </div>
+            <p class="lede">
+              Official launch on <strong>September 25, 2026</strong>. Bringing
+              industry and technology inland — leading-edge infrastructure where
+              it drives the highest economic transformation per real invested.
+            </p>
           </div>
 
-          <div data-reveal>
-            <div class="story-mosaic mb-3">
+          <div class="origin-band" data-reveal>
+            <div class="story-mosaic">
               <figure>
                 <img
                   src="../assets/img/story-canyon-xingo.webp"
                   srcset="../assets/img/story-canyon-xingo-720.webp 720w, ../assets/img/story-canyon-xingo-960.webp 960w, ../assets/img/story-canyon-xingo.webp 900w"
-                  sizes="(min-width: 64rem) 28vw, 94vw"
+                  sizes="(min-width: 64rem) 42vw, 94vw"
                   width="900"
                   height="920"
                   loading="lazy"
@@ -678,10 +664,32 @@
                 </p>
               </li>
             </ol>
-            <p class="note-inline mt-2">
+          </div>
+
+          <div class="prose mt-3" data-reveal>
+            <p>
+              The model enables tenant companies to share infrastructure, power,
+              technology, expertise, and sustainable solutions — strengthening
+              productive chains rather than merely leasing plots on a shared
+              site. Deployment is phased by quadrant; confirmed milestones are
+              published through official channels.
+            </p>
+            <p class="note-inline">
               Future dates depend on permitting, contracting, and construction
               conditions. Confirmed milestones are announced on official channels.
             </p>
+          </div>
+
+          <div class="cluster mt-3" data-reveal>
+            <a class="btn btn--gold" href="eco-polo.html">
+              Complex structure
+              <svg class="btn__arrow" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg>
+            </a>
+            <a class="link-arrow" href="https://www.linkedin.com/company/ecopolonordeste/posts/" target="_blank" rel="noopener noreferrer external">
+              Launch coverage on LinkedIn
+              <svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-external" /></svg>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
           </div>
         </div>
       </section>
@@ -852,7 +860,7 @@
       </section>
 
       <!-- ============================================================ SDGs -->
-      <section class="section section--alt" aria-labelledby="ods-titulo">
+      <section class="section section--alt" id="ods" aria-labelledby="ods-titulo">
         <div class="wrap">
           <div class="split" data-reveal>
             <div>
@@ -994,7 +1002,7 @@
       </section>
 
       <!-- ======================================================= JOURNEYS -->
-      <section class="section section--dark" aria-labelledby="publicos-titulo">
+      <section class="section section--dark" id="publicos" aria-labelledby="publicos-titulo">
         <div class="wrap">
           <div class="section-head section-head--wide" data-reveal>
             <p class="eyebrow">Where to start</p>
@@ -1036,7 +1044,7 @@
       </section>
 
       <!-- ===================================================== COMPLIANCE -->
-      <section class="section section--alt" aria-labelledby="conf-titulo">
+      <section class="section section--alt" id="conformidade-resumo" aria-labelledby="conf-titulo">
         <div class="wrap split split--reverse">
           <div class="atlas atlas--light" data-reveal>
             <ul class="compliance-list">
@@ -1543,8 +1551,8 @@
     </svg>
 
 
-    <script src="../assets/js/config.js?v=40bfa7a3dc"></script>
-    <script src="../assets/js/consent.js?v=40bfa7a3dc" defer></script>
-    <script src="../assets/js/site.js?v=40bfa7a3dc" defer></script>
+    <script src="../assets/js/config.js?v=532f262c8b"></script>
+    <script src="../assets/js/consent.js?v=532f262c8b" defer></script>
+    <script src="../assets/js/site.js?v=532f262c8b" defer></script>
   </body>
 </html>
