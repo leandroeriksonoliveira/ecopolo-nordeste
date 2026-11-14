@@ -43,7 +43,7 @@
     <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
     <link rel="manifest" href="../manifest.webmanifest" />
 
-    <link rel="stylesheet" href="../assets/css/site.min.css?v=f1cdc59487" />
+    <link rel="stylesheet" href="../assets/css/site.min.css?v=b52e6d0df0" />
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -181,39 +181,45 @@
 
     <main id="conteudo">
 <section class="page-hero">
-        <div class="wrap">
-          <img class="page-hero__banner" src="../assets/img/wordmark-banner.webp" width="900" height="164" decoding="async" alt="ecopolonordeste wordmark in green" />
-          <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb">
-              <li><a href="index.html">Home</a></li>
-              <li><span aria-current="page">The complex</span></li>
-            </ol>
-          </nav>
-          <p class="eyebrow">Eco Polo Nordeste</p>
-          <h1>The environment high-performance operations demand</h1>
-          <p class="lede">
-            Designed to international sustainability standards, the complex
-            addresses energy security, operational resilience, and
-            socio-environmental risk mitigation on the same site — from clean
-            power supply to intelligent reuse of water and industrial inputs.
-          </p>
-          <div class="cluster mt-3">
-            <a class="btn btn--gold" href="#unidades">View the units</a>
-            <a class="btn btn--ghost" href="contato.html">Install your operation</a>
+        <div class="wrap page-hero__grid">
+          <div class="page-hero__copy">
+            <nav aria-label="Breadcrumb">
+              <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><span aria-current="page">The complex</span></li>
+              </ol>
+            </nav>
+            <p class="eyebrow">Eco Polo Nordeste</p>
+            <h1>The environment high-performance operations demand</h1>
+            <p class="lede">
+              Off-grid renewable power, closed-loop water, and ESG governance on the same site — built for hyperscale industry in Northeast Brazil.
+            </p>
+            <div class="cluster">
+              <a class="btn btn--gold" href="#unidades">View the units</a>
+              <a class="btn btn--ghost" href="contato.html">Install your operation</a>
+            </div>
           </div>
+          <figure class="page-hero__visual">
+            <img
+              src="../assets/img/story-energia-linhas.webp"
+              width="460"
+              height="920"
+              decoding="async"
+              fetchpriority="high"
+              alt="Transmission lines in golden light, visual anchor for the complex energy matrix"
+            />
+          </figure>
         </div>
       </section>
 
       <!-- Engineering pillars -->
-      <section class="section" aria-labelledby="pilares-titulo">
+      <section class="section section--tight" aria-labelledby="pilares-titulo">
         <div class="wrap">
           <div class="section-head section-head--wide" data-reveal>
             <p class="eyebrow">Site engineering</p>
             <h2 id="pilares-titulo">Four systems defining operations</h2>
             <p class="lede">
-              The complex does not merely lease land: it delivers an integrated
-              system of power, water, data, and governance pre-dimensioned
-              before tenants arrive.
+              Power, water, data, and governance integrated before tenants arrive.
             </p>
           </div>
 
@@ -262,60 +268,24 @@
         </div>
       </section>
 
-      <!-- Energy / water story — Datacenter World frames -->
-      <section class="section section--tight" aria-labelledby="matriz-titulo">
-        <div class="wrap">
-          <div class="section-head section-head--wide" data-reveal>
-            <p class="eyebrow">Matrix &amp; resources</p>
-            <h2 id="matriz-titulo">Clean power and closed-loop water on the same site</h2>
-            <p class="lede">
-              The project’s technical narrative — 2.8 GW off-grid, solar and
-              biomass, optimized WUE — is anchored in real Sertão and energy
-              infrastructure imagery.
-            </p>
-          </div>
-          <div class="story-split" data-reveal>
-            <figure class="story-split__visual">
-              <img
-                src="../assets/img/story-energia-linhas.webp"
-                width="460"
-                height="920"
-                loading="lazy"
-                decoding="async"
-                alt="Transmission lines and tower in golden light, standing in for the complex energy matrix"
-              />
-            </figure>
-            <div class="story-split__body">
-              <h3>2.8 GW: 100% clean, off-grid matrix</h3>
-              <p>
-                Biomass, solar, and dedicated infrastructure to decouple
-                operations from tariff volatility and interconnection queues —
-                the same argument presented at Datacenter World Brasil.
-              </p>
-              <div class="story-mosaic">
-                <figure>
-                  <img src="../assets/img/story-solar.webp" width="420" height="420" loading="lazy" decoding="async" alt="Aerial view of a solar farm at dusk" />
-                </figure>
-                <figure>
-                  <img src="../assets/img/story-agua.webp" width="320" height="700" loading="lazy" decoding="async" alt="Treated water flowing from an industrial pipe, representing the water cycle" />
-                </figure>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- Atlas and units -->
-      <section class="section section--dark" id="unidades" aria-labelledby="un-titulo">
+      <section class="section section--dark section--tight" id="unidades" aria-labelledby="un-titulo">
         <div class="wrap">
           <div class="section-head section-head--wide" data-reveal>
             <p class="eyebrow">Portfolio</p>
             <h2 id="un-titulo">Planned units and fronts</h2>
             <p class="lede">
-              Three units in Northeast Brazil, led by the inaugural site in
-              Delmiro Gouveia (AL), plus a planned international front in
-              Ethiopia.
+              Alagoas (anchor), Paraíba, Ceará, plus a planned Ethiopia front.
+              Projected matrix: 2.8 GW clean and off-grid at the inaugural unit.
             </p>
+          </div>
+          <div class="story-mosaic mb-3" data-reveal>
+            <figure>
+              <img src="../assets/img/story-solar.webp" width="420" height="420" loading="lazy" decoding="async" alt="Aerial view of a solar farm at dusk" />
+            </figure>
+            <figure>
+              <img src="../assets/img/story-agua.webp" width="320" height="700" loading="lazy" decoding="async" alt="Treated water flowing from an industrial pipe, representing the water cycle" />
+            </figure>
           </div>
 
           <div class="split split--wide-left">
@@ -1094,8 +1064,8 @@
     </svg>
 
 
-    <script src="../assets/js/config.js?v=f1cdc59487"></script>
-    <script src="../assets/js/consent.js?v=f1cdc59487" defer></script>
-    <script src="../assets/js/site.js?v=f1cdc59487" defer></script>
+    <script src="../assets/js/config.js?v=b52e6d0df0"></script>
+    <script src="../assets/js/consent.js?v=b52e6d0df0" defer></script>
+    <script src="../assets/js/site.js?v=b52e6d0df0" defer></script>
   </body>
 </html>

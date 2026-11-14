@@ -43,7 +43,7 @@
     <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
     <link rel="manifest" href="../manifest.webmanifest" />
 
-    <link rel="stylesheet" href="../assets/css/site.min.css?v=f1cdc59487" />
+    <link rel="stylesheet" href="../assets/css/site.min.css?v=b52e6d0df0" />
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -181,104 +181,51 @@
 
     <main id="conteudo">
 <section class="page-hero">
-        <div class="wrap">
-          <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb">
-              <li><a href="index.html">Home</a></li>
-              <li><span aria-current="page">About us</span></li>
-            </ol>
-          </nav>
-          <p class="eyebrow">About us</p>
-          <h1>A private Brazilian company dedicated to structuring the sustainability ecosystem</h1>
-          <p class="lede">
-            Eco Polo Nordeste supports and develops strategic projects in green
-            technologies, biotechnology, and applied research across
-            agribusiness, future food systems, and medical-hospital solutions —
-            turning sustainable potential into industrial assets.
-          </p>
-        </div>
-      </section>
-
-      <!-- Legal identification -->
-      <section class="section section--tight section--alt">
-        <div class="wrap">
-          <div class="table-scroll" data-reveal>
-            <table class="data">
-              <caption>
-                Corporate registration details, per official Brazilian registry.
-              </caption>
-              <tbody>
-                <tr>
-                  <th scope="row">Legal name</th>
-                  <td>Eco Polo Nordeste LTDA</td>
-                </tr>
-                <tr>
-                  <th scope="row">Trade name</th>
-                  <td>Polo Eco Green · Eco Polo Nordeste</td>
-                </tr>
-                <tr>
-                  <th scope="row">CNPJ</th>
-                  <td class="mono">44.185.321/0001-83</td>
-                </tr>
-                <tr>
-                  <th scope="row">Incorporation</th>
-                  <td>November 2021</td>
-                </tr>
-                <tr>
-                  <th scope="row">Company size</th>
-                  <td>Micro-enterprise (ME)</td>
-                </tr>
-                <tr>
-                  <th scope="row">Headquarters &amp; operations base</th>
-                  <td>Av. Venerável João Vieira Chagas, 13, Sala 09 – Mangabeiras, Maceió - AL, ZIP 57037-035, Brazil</td>
-                </tr>
-                <tr>
-                  <th scope="row">Commercial office</th>
-                  <td>Norcon Empresarial — Av. Comendador Gustavo Paiva, Mangabeiras, Maceió - AL</td>
-                </tr>
-                <tr>
-                  <th scope="row">Ownership</th>
-                  <td>Privately held company</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="wrap page-hero__grid">
+          <div class="page-hero__copy">
+            <nav aria-label="Breadcrumb">
+              <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><span aria-current="page">About us</span></li>
+              </ol>
+            </nav>
+            <p class="eyebrow">About us</p>
+            <h1>A Brazilian company structuring the sustainability ecosystem</h1>
+            <p class="lede">
+              Green tech, biotechnology, and R&amp;D for agribusiness, food, and medical-hospital solutions — rooted in Northeast Brazil.
+            </p>
+            <aside class="reg-card mt-2" aria-labelledby="reg-titulo">
+              <div>
+                <p class="reg-card__title" id="reg-titulo">Registration notes</p>
+                <p class="reg-card__note">
+                  Legal name, CNPJ, HQ, and commercial office already appear in the footer. Only the page-unique item stays here.
+                </p>
+              </div>
+              <dl>
+                <div class="row">
+                  <dt>Ownership</dt>
+                  <dd>Privately held</dd>
+                </div>
+              </dl>
+            </aside>
           </div>
-        </div>
-      </section>
-
-      <section class="section section--flush" aria-labelledby="lugar-titulo">
-        <div class="story-band" data-reveal>
-          <figure class="story-band__media">
+          <figure class="page-hero__visual">
             <img
               src="../assets/img/story-canyon-xingo.webp"
               srcset="../assets/img/story-canyon-xingo-720.webp 720w, ../assets/img/story-canyon-xingo-960.webp 960w, ../assets/img/story-canyon-xingo.webp 900w"
-              sizes="100vw"
+              sizes="(min-width: 56rem) 42vw, 100vw"
               width="900"
               height="920"
-              loading="lazy"
               decoding="async"
+              fetchpriority="high"
               alt="São Francisco River canyons in Alagoas, orange rock walls and green water"
             />
           </figure>
-          <div class="story-band__panel">
-            <p class="eyebrow">Origin</p>
-            <h2 id="lugar-titulo">A Brazilian company rooted in the Northeast</h2>
-            <p>
-              Eco Polo Nordeste’s identity is anchored in place — Delmiro
-              Gouveia, the São Francisco, and the caatinga — not in generic
-              “green tech” abstractions.
-            </p>
-            <ul class="story-band__facts">
-              <li>CNPJ 44.185.321/0001-83</li>
-              <li>Since November 2021</li>
-              <li>HQ in Maceió — AL</li>
-            </ul>
-          </div>
         </div>
       </section>
 
       <!-- Mission, vision, purpose -->
-      <section class="section" aria-labelledby="mvp-titulo">
+      <section class="section section--tight" aria-labelledby="mvp-titulo">
         <div class="wrap">
           <div class="section-head" data-reveal>
             <p class="eyebrow">Direction</p>
@@ -365,7 +312,7 @@
       </section>
 
       <!-- Values -->
-      <section class="section" aria-labelledby="valores-titulo">
+      <section class="section section--tight" aria-labelledby="valores-titulo">
         <div class="wrap">
           <div class="section-head" data-reveal>
             <p class="eyebrow">Values</p>
@@ -475,7 +422,7 @@
       </section>
 
       <!-- Diversity -->
-      <section class="section" aria-labelledby="div-titulo">
+      <section class="section section--tight" aria-labelledby="div-titulo">
         <div class="wrap split split--reverse">
           <div class="atlas atlas--light" data-reveal>
             <ul class="compliance-list">
@@ -973,8 +920,8 @@
     </svg>
 
 
-    <script src="../assets/js/config.js?v=f1cdc59487"></script>
-    <script src="../assets/js/consent.js?v=f1cdc59487" defer></script>
-    <script src="../assets/js/site.js?v=f1cdc59487" defer></script>
+    <script src="../assets/js/config.js?v=b52e6d0df0"></script>
+    <script src="../assets/js/consent.js?v=b52e6d0df0" defer></script>
+    <script src="../assets/js/site.js?v=b52e6d0df0" defer></script>
   </body>
 </html>
