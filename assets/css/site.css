@@ -2696,11 +2696,21 @@ legend {
 .origin-band {
   display: grid;
   gap: clamp(1rem, 0.7rem + 1.2vw, 1.75rem);
-  align-items: start;
 }
 @media (min-width: 62rem) {
   .origin-band {
     grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr);
+  }
+  .origin-band .story-mosaic {
+    height: 100%;
+  }
+  .origin-band .story-mosaic figure {
+    height: 100%;
+  }
+  .origin-band .story-mosaic img,
+  .origin-band .story-mosaic figure:first-child img {
+    height: 100%;
+    aspect-ratio: auto;
   }
 }
 .origin-band .timeline {
