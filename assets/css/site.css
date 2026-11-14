@@ -138,7 +138,10 @@ body {
   font-feature-settings: "kern" 1, "liga" 1, "cv11" 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  /* clip no eixo X faz overflow-y computar como auto: o body vira o
+     scrollport. scroll-padding precisa estar aqui (não só no html). */
   overflow-x: clip;
+  scroll-padding-top: calc(var(--header-h) + var(--page-rail-h) + 1.25rem);
 }
 
 img,

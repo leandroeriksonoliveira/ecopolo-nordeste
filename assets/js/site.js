@@ -369,16 +369,10 @@
       if (!section) return;
       byId[id] = link;
       targets.push(section);
-      link.addEventListener("click", function (event) {
-        // Garante o salto mesmo com header + page-rail sticky.
-        event.preventDefault();
+      link.addEventListener("click", function () {
+        // Navegação nativa por hash + scroll-padding (html/body).
+        // Só marcamos o estado ativo; o browser faz o salto.
         setCurrentToc(id);
-        if (history && history.pushState) {
-          history.pushState(null, "", "#" + id);
-        } else {
-          location.hash = id;
-        }
-        section.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
       });
     });
 
